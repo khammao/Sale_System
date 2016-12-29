@@ -92,9 +92,11 @@
           </Layout>
           <SubComponents>
             <Container class="com.l2fprod.common.swing.JTaskPane" name="jTaskPane1">
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-              </AuxValues>
+              <Properties>
+                <Property name="UI" type="com.l2fprod.common.swing.plaf.TaskPaneUI" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                  <ComponentRef name="default"/>
+                </Property>
+              </Properties>
               <SubComponents>
                 <Container class="com.l2fprod.common.swing.JTaskPaneGroup" name="jTaskPaneGroup1">
                   <Properties>
@@ -721,7 +723,7 @@
                 </CodeStatement>
                 <CodeStatement>
                   <CodeExpression id="24_jTaskPane1">
-                    <CodeVariable name="jTaskPane1" type="8193" declaredType="com.l2fprod.common.swing.JTaskPane"/>
+                    <CodeVariable name="jTaskPane1" type="8194" declaredType="com.l2fprod.common.swing.JTaskPane"/>
                     <ExpressionOrigin>
                       <ExpressionProvider type="ComponentRef">
                         <ComponentRef name="jTaskPane1"/>
