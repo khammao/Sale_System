@@ -306,7 +306,7 @@ public class frmMain extends javax.swing.JFrame {
         jMenu2.setEnabled(false);
         jMenuBar1.add(jMenu2);
 
-        jMenu3.setText("Khammao Xiong");
+        jMenu3.setText("Khammao Xiong 2016");
         jMenuBar1.add(jMenu3);
 
         setJMenuBar(jMenuBar1);

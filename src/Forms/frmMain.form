@@ -21,7 +21,7 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu3">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Khammao Xiong"/>
+            <Property name="text" type="java.lang.String" value="Khammao Xiong 2016"/>
           </Properties>
         </Menu>
       </SubComponents>
