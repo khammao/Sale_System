@@ -224,6 +224,11 @@ public class frmMain extends javax.swing.JFrame {
         jocHyperlink18.setText("ພະນັກງານ");
         jocHyperlink18.setFont(new java.awt.Font("Saysettha OT", 0, 16)); // NOI18N
         jocHyperlink18.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jocHyperlink18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jocHyperlink18ActionPerformed(evt);
+            }
+        });
         jTaskPaneGroup4.getContentPane().add(jocHyperlink18);
 
         jocHyperlink19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/house-xxl.png"))); // NOI18N
@@ -345,6 +350,12 @@ public class frmMain extends javax.swing.JFrame {
             e.setVisible(true);
             jDesktopPane1.add(e);
     }//GEN-LAST:event_jocHyperlink16ActionPerformed
+
+    private void jocHyperlink18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jocHyperlink18ActionPerformed
+        frmEmplyee e = new frmEmplyee();
+            e.setVisible(true);
+            jDesktopPane1.add(e);
+    }//GEN-LAST:event_jocHyperlink18ActionPerformed
 
     /**
      * @param args the command line arguments
