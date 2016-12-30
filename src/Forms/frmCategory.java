@@ -403,7 +403,7 @@ public class frmCategory extends javax.swing.JInternalFrame {
                 PreparedStatement p = con.prepareStatement(sql);
                 p.setString(1,txtID.getText());
                 if(p.executeUpdate()!=-1){
-                   int type = JOptionPane.WARNING_MESSAGE;
+                   int type = JOptionPane.OK_OPTION;
                    String a = "Finished";
                    String b = "Message";
                    JOptionPane.showMessageDialog(null,a, b,type);

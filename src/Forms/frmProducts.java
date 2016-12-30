@@ -524,7 +524,7 @@ public class frmProducts extends javax.swing.JInternalFrame {
                     p.setString(12,date);
                     p.setString(13,txtUser.getText());
                     if(p.executeUpdate()!=-1){
-                        int type = JOptionPane.WARNING_MESSAGE;
+                        int type = JOptionPane.OK_OPTION;
                         String a = "Finished";
                         String b = "Save";
                         JOptionPane.showMessageDialog(null,a, b,type);
@@ -562,7 +562,7 @@ public class frmProducts extends javax.swing.JInternalFrame {
                     p.setString(13,txtUser.getText());
                     p.setString(14,txtID.getText());
                     if(p.executeUpdate()!=-1){
-                        int type = JOptionPane.WARNING_MESSAGE;
+                        int type = JOptionPane.OK_OPTION;
                         String a = "Finished";
                         String b = "Edit";
                         JOptionPane.showMessageDialog(null,a, b,type);
@@ -590,7 +590,7 @@ public class frmProducts extends javax.swing.JInternalFrame {
                 PreparedStatement p = con.prepareStatement(sql);
                 p.setString(1,txtID.getText());
                 if(p.executeUpdate()!=-1){
-                   int type = JOptionPane.WARNING_MESSAGE;
+                   int type = JOptionPane.OK_OPTION;
                    String a = "Finished";
                    String b = "Message";
                    JOptionPane.showMessageDialog(null,a, b,type);

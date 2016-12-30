@@ -309,7 +309,7 @@ public static java.sql.Date convertUtilDateToSqlDate(java.util.Date date){
                p.setDate(2,convertUtilDateToSqlDate(dtcDate.getDate()));
                p.setString(3,txtUser.getText());
                if(p.executeUpdate()!=-1){
-                   int type = JOptionPane.WARNING_MESSAGE;
+                   int type = JOptionPane.OK_OPTION;
                    String a = "Finished";
                    String b = "Message";
                    JOptionPane.showConfirmDialog(null,a,b,type);
@@ -336,7 +336,7 @@ public static java.sql.Date convertUtilDateToSqlDate(java.util.Date date){
                   p.setString(3,txtUser.getText());
                   p.setString(4,txtID.getText());
                   if(p.executeUpdate()!=-1){
-                      int type = JOptionPane.WARNING_MESSAGE;
+                      int type = JOptionPane.OK_OPTION;
                       String a = "Finished";
                       String b = "Message";
                       JOptionPane.showConfirmDialog(null,a, b,type);
@@ -369,7 +369,7 @@ public static java.sql.Date convertUtilDateToSqlDate(java.util.Date date){
                PreparedStatement p = con.prepareStatement(sql);
                p.setString(1,txtID.getText());
                if(p.executeUpdate()!=-1){
-                   int type = JOptionPane.WARNING_MESSAGE;
+                   int type = JOptionPane.OK_OPTION;
                    String a = "Finished";
                    String b = "Message";
                    JOptionPane.showConfirmDialog(null,a, b,type);
