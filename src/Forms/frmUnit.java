@@ -297,7 +297,7 @@ public static java.sql.Date convertUtilDateToSqlDate(java.util.Date date){
                JOptionPane.showMessageDialog(null,a, b,type);
                 return;
            }
-           if(JOptionPane.showConfirmDialog(null, "Do you live to save?","Message",JOptionPane.YES_NO_OPTION)==JOptionPane.YES_OPTION){
+           if(JOptionPane.showConfirmDialog(null, "Do you like to save?","Message",JOptionPane.YES_NO_OPTION)==JOptionPane.YES_OPTION){
                //SimpleDateFormat dd = new SimpleDateFormat(
                  //Insert current date
 //               java.util.Date utilDate = new Date();
@@ -325,7 +325,7 @@ public static java.sql.Date convertUtilDateToSqlDate(java.util.Date date){
                   JOptionPane.showMessageDialog(null,a, b,type);
                    return;
               }
-              if(JOptionPane.showConfirmDialog(null, "Do you live to save?","Message",JOptionPane.YES_NO_OPTION)==JOptionPane.YES_OPTION){
+              if(JOptionPane.showConfirmDialog(null, "Do you like to save?","Message",JOptionPane.YES_NO_OPTION)==JOptionPane.YES_OPTION){
                   SimpleDateFormat dd = new SimpleDateFormat("yyyy-MM-dd");
                   String date = dd.format(dtcDate.getDate());
          
@@ -364,7 +364,7 @@ public static java.sql.Date convertUtilDateToSqlDate(java.util.Date date){
                JOptionPane.showMessageDialog(null,a, b,type);
                 return;
            }
-           if(JOptionPane.showConfirmDialog(null,"Do you live to Delete?","Delete",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE)==JOptionPane.YES_OPTION){
+           if(JOptionPane.showConfirmDialog(null,"Do you like to Delete?","Delete",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE)==JOptionPane.YES_OPTION){
                sql="Delete from Unit where UnitID=?";
                PreparedStatement p = con.prepareStatement(sql);
                p.setString(1,txtID.getText());

@@ -459,7 +459,7 @@ public class frmProductGroup extends javax.swing.JInternalFrame {
                    JOptionPane.showMessageDialog(null,a, b,type);
                    return;
                }
-               if(JOptionPane.showConfirmDialog(null,"Do you live to save?","Save",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE)==JOptionPane.YES_OPTION){
+               if(JOptionPane.showConfirmDialog(null,"Do you like to save?","Save",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE)==JOptionPane.YES_OPTION){
                    SimpleDateFormat dd = new SimpleDateFormat("yyyy-MM-dd");
                    String date =(String) dd.format(dtpDate.getDate());
                    sql="Update Groups set GroupName=?,Updates=?,CreateBy=? where GroupID=?";
@@ -492,7 +492,7 @@ public class frmProductGroup extends javax.swing.JInternalFrame {
                JOptionPane.showMessageDialog(null,a, b,type);
                return;
            }
-           if(JOptionPane.showConfirmDialog(null,"Do you live to Delete?","Delete",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE)==JOptionPane.YES_OPTION){
+           if(JOptionPane.showConfirmDialog(null,"Do you like to Delete?","Delete",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE)==JOptionPane.YES_OPTION){
                sql="Delete from Groups where GroupID=?";
                PreparedStatement p = con.prepareStatement(sql);
                p.setString(1, txtID.getText());

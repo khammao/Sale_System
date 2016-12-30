@@ -339,7 +339,7 @@ public class frmCategory extends javax.swing.JInternalFrame {
                 return;
                 }
                 int Cat =cmbGroup.getSelectedIndex();
-                if(JOptionPane.showConfirmDialog(null,"Do you live to save?","Save",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE)==JOptionPane.YES_OPTION){
+                if(JOptionPane.showConfirmDialog(null,"Do you like to save?","Save",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE)==JOptionPane.YES_OPTION){
                     SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
                     String date = (String) df.format(dtpDate.getDate());
                     sql="insert into Categorys(GroupID,CatName,Updates,CreateBy)values(?,?,?,?)";
@@ -366,7 +366,7 @@ public class frmCategory extends javax.swing.JInternalFrame {
                     return;
                 }
                 int Cat =cmbGroup.getSelectedIndex();
-                if(JOptionPane.showConfirmDialog(null,"Do you want to edit?","Edit",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE)==JOptionPane.YES_OPTION){
+                if(JOptionPane.showConfirmDialog(null,"Do you like to edit?","Edit",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE)==JOptionPane.YES_OPTION){
                     SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
                     String date = (String) df.format(dtpDate.getDate());
                     sql="Update Categorys set GroupID=?,CatName=?,Updates=?,CreateBy=? where CatID=?";
@@ -398,7 +398,7 @@ public class frmCategory extends javax.swing.JInternalFrame {
                 JOptionPane.showConfirmDialog(null,a, b,type);
                 return;
             }
-            if(JOptionPane.showConfirmDialog(null,"Do you want to delete?","Delete",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE)==JOptionPane.YES_OPTION){
+            if(JOptionPane.showConfirmDialog(null,"Do you like to delete?","Delete",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE)==JOptionPane.YES_OPTION){
                 sql="Delete from Categorys where CatID=?";
                 PreparedStatement p = con.prepareStatement(sql);
                 p.setString(1,txtID.getText());

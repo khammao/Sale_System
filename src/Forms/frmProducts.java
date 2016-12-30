@@ -505,7 +505,7 @@ public class frmProducts extends javax.swing.JInternalFrame {
                 }
                 int c = cmbCate.getSelectedIndex();
                 int u = cmbUnit.getSelectedIndex();
-                if(JOptionPane.showConfirmDialog(null,"Do you live to save?","Save",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE)==JOptionPane.YES_OPTION){
+                if(JOptionPane.showConfirmDialog(null,"Do you like to save?","Save",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE)==JOptionPane.YES_OPTION){
                     SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
                     String date = (String) df.format(dtpDate.getDate());
                     sql="insert into Products(SKU,ProName,ProNameEng,UnitID,Stdcost,Tax,margin,Price,Price1,Price2,CatID,Updates,CreateBy)values(?,?,?,?,?,?,?,?,?,?,?,?,?)";
@@ -542,7 +542,7 @@ public class frmProducts extends javax.swing.JInternalFrame {
                 }
                 int c = cmbCate.getSelectedIndex();
                 int u = cmbUnit.getSelectedIndex();
-                if(JOptionPane.showConfirmDialog(null,"Do you live to edit?","Edit",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE)==JOptionPane.YES_OPTION){
+                if(JOptionPane.showConfirmDialog(null,"Do you like to edit?","Edit",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE)==JOptionPane.YES_OPTION){
                     SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
                     String date = (String) df.format(dtpDate.getDate());
                     sql="Update Products set SKU=?,ProName=?,ProNameEng=?,UnitID=?,Stdcost=?,Tax=?,margin=?,Price=?,Price1=?,Price2=?,CatID=?,Updates=?,CreateBy=? where ProID=(?)";
@@ -585,7 +585,7 @@ public class frmProducts extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(null,a,b,type);
                 return;
             }
-            if(JOptionPane.showConfirmDialog(null,"Do you live to Delete?","Delete",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE)==JOptionPane.YES_OPTION){
+            if(JOptionPane.showConfirmDialog(null,"Do you like to Delete?","Delete",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE)==JOptionPane.YES_OPTION){
                 sql="Delete from Products where ProID=?";
                 PreparedStatement p = con.prepareStatement(sql);
                 p.setString(1,txtID.getText());
