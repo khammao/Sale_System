@@ -482,6 +482,11 @@ public class frmEmplyee extends javax.swing.JInternalFrame {
        // radMale.setSelected(false);
        // radFemale.setSelected(false);
     }
+    public void SearchData(){
+        try{
+            
+        }catch(Exception e){}
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnDelete;

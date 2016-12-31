@@ -141,7 +141,7 @@ public class frmProducts extends javax.swing.JInternalFrame {
         jPanel5.add(btnDelete);
 
         btnExit.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/sa-icon-big.png"))); // NOI18N
+        btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/switch-512.png"))); // NOI18N
         btnExit.setText("ອອກ");
         btnExit.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         btnExit.addActionListener(new java.awt.event.ActionListener() {
