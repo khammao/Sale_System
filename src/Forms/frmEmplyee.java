@@ -4,6 +4,7 @@ package Forms;
 import com.toedter.calendar.JTextFieldDateEditor;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
 import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
@@ -191,9 +192,16 @@ public class frmEmplyee extends javax.swing.JInternalFrame {
 
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 255), 2));
 
+        txtSearch.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+
         jButton4.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/sa-icon-big.png"))); // NOI18N
         jButton4.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jLabel13.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         jLabel13.setText("ຄົ້ນຂໍ້ມູນ");
@@ -418,7 +426,44 @@ public class frmEmplyee extends javax.swing.JInternalFrame {
                     }
                     ClearText();
                 }
-            }else{}
+            }else{
+                if(txtName.getText().equals("")){
+                    int type = JOptionPane.WARNING_MESSAGE;
+                    String a = "Error...Please check your data again.";
+                    String b = "Message";
+                    JOptionPane.showMessageDialog(null,a,b,type);
+                    return;
+                }
+                if(JOptionPane.showConfirmDialog(null,"Do you like to edit?","edit",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE)==JOptionPane.YES_OPTION){
+                    SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+                    String DBD = (String) df.format(dtcBD.getDate());
+                    String DST = (String) df.format(dtcStart.getDate());
+                    String DUP = (String) df.format(dtcUpdate.getDate());
+                    sql="Update Employee set EName=?,ENameEng=?,Sex=?,Tel=?,Email=?,Address=?,BDay=?,StartDate=?,EmergencyContact=?,Description=?,Updates=?,CreateBy=? where EID=?";
+                    PreparedStatement p = con.prepareStatement(sql);
+                    p.setString(1,txtName.getText());
+                    p.setString(2,txtNameEng.getText());
+                    p.setString(3,sex);
+                    p.setString(4,txtPhone.getText());
+                    p.setString(5,txtEmail.getText());
+                    p.setString(6,txtAddress.getText());
+                    p.setString(7,DBD);
+                    p.setString(8,DST);
+                    p.setString(9,txtEmergency.getText());
+                    p.setString(10,txtRemark.getText());
+                    p.setString(11,DUP);
+                    p.setString(12,txtUser.getText());
+                    p.setString(13,txtID.getText());
+                    if(p.executeUpdate()!= -1){
+                        int type = JOptionPane.OK_OPTION;
+                        String a = "Finished";
+                        String b = "Edit";
+                        JOptionPane.showMessageDialog(null,a,b,type);
+                    }
+                    ClearText();
+                }
+            }
+            
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -433,6 +478,11 @@ public class frmEmplyee extends javax.swing.JInternalFrame {
         if(radFemale.isSelected())
         sex="Female";
     }//GEN-LAST:event_radFemaleActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        SearchData();
+        radioSelected();
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     public void DisableEditText(){
         txtName.setEditable(false);
@@ -479,14 +529,68 @@ public class frmEmplyee extends javax.swing.JInternalFrame {
         dtcBD.setDate(null);
         dtcStart.setDate(null);
         dtcUpdate.setDate(null);
-       // radMale.setSelected(false);
-       // radFemale.setSelected(false);
+        radMale.setSelected(false);
+        radFemale.setSelected(false);
     }
     public void SearchData(){
         try{
-            
-        }catch(Exception e){}
+            sql="SELECT EID, EName, ENameEng, Tel, Email, Address, BDay, StartDate, EmergencyContact, Description, Updates, CreateBy FROM Employee where EID="+ txtSearch.getText() +"";
+            ResultSet rs = con.createStatement().executeQuery(sql);
+            if(rs.next())
+            {
+                String ID = rs.getString("EID");
+                txtID.setText(ID);
+                String Name = rs.getString("EName");
+                txtName.setText(Name);
+                String NameEN = rs.getString("ENameEng");
+                txtNameEng.setText(NameEN);
+                String TEL = rs.getString("Tel");
+                txtPhone.setText(TEL);
+                String EM = rs.getString("Email");
+                txtEmail.setText(EM);
+                String AD = rs.getString("Address");
+                txtAddress.setText(AD);
+                dtcBD.setDate(rs.getDate("BDay"));
+                dtcStart.setDate(rs.getDate("StartDate"));
+                String EC = rs.getString("EmergencyContact");
+                txtEmergency.setText(EC);
+                String DP = rs.getString("Description");
+                txtRemark.setText(DP);
+                dtcUpdate.setDate(rs.getDate("Updates"));
+                String CB = rs.getString("CreateBy");
+                txtUser.setText(CB);
+            }
+            //rs.close();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
     }
+    public void radioSelected(){
+          
+        try {
+            
+            sql = "select Sex from Employee where EID = "+ txtSearch.getText() +"";            
+            ResultSet rs = con.createStatement().executeQuery(sql);
+            if (rs.next()) {
+                 String gender=rs.getString("Sex");
+                if(gender.equals("Male"))
+                {
+                    radMale.setSelected(true); 
+                }
+                else if(gender.equals("Female"))
+                {
+                    radFemale.setSelected(true);
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(null, "error !");
+                }  
+            }          
+              
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+      }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnDelete;

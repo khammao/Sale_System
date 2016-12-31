@@ -649,7 +649,7 @@ public class frmProducts extends javax.swing.JInternalFrame {
                 String pb = jTable1.getValueAt(index,9).toString();
                 String pc = jTable1.getValueAt(index,10).toString();
                 String cat = jTable1.getValueAt(index,11).toString();
-               // String dt = jTable1.getValueAt(index,12).toString();
+                //String dt = jTable1.getValueAt(index,12).toString();
                 String user = jTable1.getValueAt(index,13).toString();
                 txtID.setText(id);
                 txtbar.setText(bar);
@@ -694,7 +694,7 @@ public class frmProducts extends javax.swing.JInternalFrame {
                 v.add(rs.getFloat("Price1"));
                 v.add(rs.getFloat("Price2"));
                 v.add(rs.getString("CatName"));
-                v.add(rs.getString("Updates"));
+                v.add(rs.getDate("Updates"));
                 v.add(rs.getString("CreateBy"));
                 model.addRow(v);
             }
@@ -723,7 +723,7 @@ public class frmProducts extends javax.swing.JInternalFrame {
                 v.add(rs.getFloat("Price1"));
                 v.add(rs.getFloat("Price2"));
                 v.add(rs.getString("CatName"));
-                v.add(rs.getString("Updates"));
+                v.add(rs.getDate("Updates"));
                 v.add(rs.getString("CreateBy"));
                 model.addRow(v);
             }
