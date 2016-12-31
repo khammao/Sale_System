@@ -115,6 +115,11 @@ public class frmEmplyee extends javax.swing.JInternalFrame {
         btnDelete.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/Delete_Icon-300x241.png"))); // NOI18N
         btnDelete.setText("ລົບອອກ");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
         jPanel2.add(btnDelete);
 
         jLabel1.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
@@ -381,6 +386,7 @@ public class frmEmplyee extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
+        txtID.setEnabled(false);
         DisableEditText();
     }//GEN-LAST:event_formInternalFrameOpened
 
@@ -470,19 +476,47 @@ public class frmEmplyee extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void radMaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radMaleActionPerformed
-        if(radMale.isSelected())
-        sex="Male";
+        if(radMale.isSelected()){
+             sex="Male";
+        }
     }//GEN-LAST:event_radMaleActionPerformed
 
     private void radFemaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radFemaleActionPerformed
-        if(radFemale.isSelected())
-        sex="Female";
+        if(radFemale.isSelected()){
+            sex="Female";
+        }
     }//GEN-LAST:event_radFemaleActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         SearchData();
         radioSelected();
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        try{
+            if(txtID.getText().equals("")){
+                int type = JOptionPane.WARNING_MESSAGE;
+                String a = "Error...Please check your data again";
+                String b = "Message";
+                JOptionPane.showMessageDialog(null,a, b,type);
+                return;
+            }
+            if(JOptionPane.showConfirmDialog(null,"Do you like to Delete?","Delete",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE)==JOptionPane.YES_OPTION){
+                sql="Delete from Employee where EID=?";
+                PreparedStatement p = con.prepareStatement(sql);
+                p.setString(1,txtID.getText());
+                if(p.executeUpdate()!=-1){
+                   int type = JOptionPane.OK_OPTION;
+                   String a = "Finished";
+                   String b = "Message";
+                   JOptionPane.showMessageDialog(null,a, b,type);
+                }
+                ClearText();
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_btnDeleteActionPerformed
 
     public void DisableEditText(){
         txtName.setEditable(false);
