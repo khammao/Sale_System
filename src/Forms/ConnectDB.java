@@ -9,7 +9,7 @@ public class ConnectDB {
     {
         try
         {
-            String sqlcon="jdbc:sqlserver://NB-MEE\\SQLEXPRESS;databaseName = TGInventory";
+            String sqlcon="jdbc:sqlserver://NB-350V\\SQLEXPRESS;databaseName = TGInventory";
             String user = "sa";
             String pas = "mee";
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");

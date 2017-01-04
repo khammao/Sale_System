@@ -201,10 +201,15 @@ public class frmMain extends javax.swing.JFrame {
         });
         jTaskPaneGroup4.getContentPane().add(jocHyperlink21);
 
-        jocHyperlink17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/cost-webivo.ro_.png"))); // NOI18N
-        jocHyperlink17.setText("ສະກຸນເງິນ");
+        jocHyperlink17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icon_inventory.png"))); // NOI18N
+        jocHyperlink17.setText("ຜູ້ສະໜອງ");
         jocHyperlink17.setFont(new java.awt.Font("Saysettha OT", 0, 16)); // NOI18N
         jocHyperlink17.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jocHyperlink17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jocHyperlink17ActionPerformed(evt);
+            }
+        });
         jTaskPaneGroup4.getContentPane().add(jocHyperlink17);
 
         jocHyperlink18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/employee.png"))); // NOI18N
@@ -343,6 +348,12 @@ public class frmMain extends javax.swing.JFrame {
         e.setVisible(true);
         jDesktopPane1.add(e);
     }//GEN-LAST:event_jocHyperlink14ActionPerformed
+
+    private void jocHyperlink17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jocHyperlink17ActionPerformed
+        frmSuppliers e = new frmSuppliers();
+        e.setVisible(true);
+        jDesktopPane1.add(e);
+    }//GEN-LAST:event_jocHyperlink17ActionPerformed
 
     /**
      * @param args the command line arguments

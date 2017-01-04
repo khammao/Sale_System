@@ -298,21 +298,19 @@ public static java.sql.Date convertUtilDateToSqlDate(java.util.Date date){
                 return;
            }
            if(JOptionPane.showConfirmDialog(null, "Do you like to save?","Message",JOptionPane.YES_NO_OPTION)==JOptionPane.YES_OPTION){
-               //SimpleDateFormat dd = new SimpleDateFormat(
-                 //Insert current date
-//               java.util.Date utilDate = new Date();
-//               java.sql.Date date = new java.sql.Date(utilDate.getTime());
+               SimpleDateFormat dd = new SimpleDateFormat("yyyy-MM-dd");
+               String date = dd.format(dtcDate.getDate());
                sql="Insert into Unit(UnitName,Updates,CreateBy)values(?,?,?)";
                PreparedStatement p = con.prepareStatement(sql);
                p.setString(1, txtUnit.getText());
-              // p.setString(2, date);
-               p.setDate(2,convertUtilDateToSqlDate(dtcDate.getDate()));
+               p.setString(2, date);
+               //p.setDate(2,convertUtilDateToSqlDate(dtcDate.getDate()));
                p.setString(3,txtUser.getText());
                if(p.executeUpdate()!=-1){
                    int type = JOptionPane.OK_OPTION;
                    String a = "Finished";
                    String b = "Message";
-                   JOptionPane.showConfirmDialog(null,a,b,type);
+                   JOptionPane.showMessageDialog(null,a,b,type);
                }
                ShowData();
                ClearText();
@@ -339,7 +337,7 @@ public static java.sql.Date convertUtilDateToSqlDate(java.util.Date date){
                       int type = JOptionPane.OK_OPTION;
                       String a = "Finished";
                       String b = "Message";
-                      JOptionPane.showConfirmDialog(null,a, b,type);
+                      JOptionPane.showMessageDialog(null,a, b,type);
                   }
                   ShowData();
                   ClearText();
@@ -348,6 +346,7 @@ public static java.sql.Date convertUtilDateToSqlDate(java.util.Date date){
            }
        }catch(Exception e)
        {
+           e.printStackTrace();
        }
     }//GEN-LAST:event_btnSaveActionPerformed
 
