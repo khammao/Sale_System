@@ -54,6 +54,9 @@ public class frmMain extends javax.swing.JFrame {
         jocHyperlink18 = new com.xzq.osc.JocHyperlink();
         jocHyperlink19 = new com.xzq.osc.JocHyperlink();
         jocHyperlink6 = new com.xzq.osc.JocHyperlink();
+        jocHyperlink23 = new com.xzq.osc.JocHyperlink();
+        jocHyperlink24 = new com.xzq.osc.JocHyperlink();
+        jocHyperlink25 = new com.xzq.osc.JocHyperlink();
         jocHyperlink20 = new com.xzq.osc.JocHyperlink();
         jocHyperlink22 = new com.xzq.osc.JocHyperlink();
         btnExit = new com.xzq.osc.JocHyperlink();
@@ -235,6 +238,29 @@ public class frmMain extends javax.swing.JFrame {
         jocHyperlink6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jTaskPaneGroup4.getContentPane().add(jocHyperlink6);
 
+        jocHyperlink23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/church-xxl.png"))); // NOI18N
+        jocHyperlink23.setText("ແຂວງ");
+        jocHyperlink23.setFont(new java.awt.Font("Saysettha OT", 0, 16)); // NOI18N
+        jocHyperlink23.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jocHyperlink23.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jocHyperlink23ActionPerformed(evt);
+            }
+        });
+        jTaskPaneGroup4.getContentPane().add(jocHyperlink23);
+
+        jocHyperlink24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/may_-_how_to_get_rid_of_ants_in_the_house.png"))); // NOI18N
+        jocHyperlink24.setText("ເມືອງ");
+        jocHyperlink24.setFont(new java.awt.Font("Saysettha OT", 0, 16)); // NOI18N
+        jocHyperlink24.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jTaskPaneGroup4.getContentPane().add(jocHyperlink24);
+
+        jocHyperlink25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/house-xxl.png"))); // NOI18N
+        jocHyperlink25.setText("ບ້ານ");
+        jocHyperlink25.setFont(new java.awt.Font("Saysettha OT", 0, 16)); // NOI18N
+        jocHyperlink25.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jTaskPaneGroup4.getContentPane().add(jocHyperlink25);
+
         jocHyperlink20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/user-permissions.png"))); // NOI18N
         jocHyperlink20.setText("ສິດທິການໃຊ້ງານ");
         jocHyperlink20.setFont(new java.awt.Font("Saysettha OT", 0, 16)); // NOI18N
@@ -285,7 +311,7 @@ public class frmMain extends javax.swing.JFrame {
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 932, Short.MAX_VALUE)
+            .addGap(0, 1028, Short.MAX_VALUE)
         );
 
         jPanel3.add(jDesktopPane1, java.awt.BorderLayout.CENTER);
@@ -355,6 +381,12 @@ public class frmMain extends javax.swing.JFrame {
         jDesktopPane1.add(e);
     }//GEN-LAST:event_jocHyperlink17ActionPerformed
 
+    private void jocHyperlink23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jocHyperlink23ActionPerformed
+        frmProvince e = new frmProvince();
+        e.setVisible(true);
+        jDesktopPane1.add(e);
+    }//GEN-LAST:event_jocHyperlink23ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -420,6 +452,9 @@ public class frmMain extends javax.swing.JFrame {
     private com.xzq.osc.JocHyperlink jocHyperlink20;
     private com.xzq.osc.JocHyperlink jocHyperlink21;
     private com.xzq.osc.JocHyperlink jocHyperlink22;
+    private com.xzq.osc.JocHyperlink jocHyperlink23;
+    private com.xzq.osc.JocHyperlink jocHyperlink24;
+    private com.xzq.osc.JocHyperlink jocHyperlink25;
     private com.xzq.osc.JocHyperlink jocHyperlink3;
     private com.xzq.osc.JocHyperlink jocHyperlink4;
     private com.xzq.osc.JocHyperlink jocHyperlink6;
