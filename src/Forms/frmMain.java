@@ -253,6 +253,11 @@ public class frmMain extends javax.swing.JFrame {
         jocHyperlink24.setText("ເມືອງ");
         jocHyperlink24.setFont(new java.awt.Font("Saysettha OT", 0, 16)); // NOI18N
         jocHyperlink24.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jocHyperlink24.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jocHyperlink24ActionPerformed(evt);
+            }
+        });
         jTaskPaneGroup4.getContentPane().add(jocHyperlink24);
 
         jocHyperlink25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/house-xxl.png"))); // NOI18N
@@ -386,6 +391,12 @@ public class frmMain extends javax.swing.JFrame {
         e.setVisible(true);
         jDesktopPane1.add(e);
     }//GEN-LAST:event_jocHyperlink23ActionPerformed
+
+    private void jocHyperlink24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jocHyperlink24ActionPerformed
+        frmDistrict e = new frmDistrict();
+        e.setVisible(true);
+        jDesktopPane1.add(e);
+    }//GEN-LAST:event_jocHyperlink24ActionPerformed
 
     /**
      * @param args the command line arguments
