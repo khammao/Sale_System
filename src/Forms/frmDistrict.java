@@ -229,7 +229,7 @@ public class frmDistrict extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-public void DisableEditeText(){
+    public void DisableEditeText(){
         txtDistrict.setEditable(false);
         txtUser.setEditable(false);
         JTextFieldDateEditor editor = (JTextFieldDateEditor) dtcUpdate.getDateEditor();

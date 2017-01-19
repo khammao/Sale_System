@@ -3,6 +3,8 @@ package Forms;
 
 import com.toedter.calendar.JTextFieldDateEditor;
 import java.awt.Color;
+import java.awt.Component;
+import java.awt.EventQueue;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,19 +12,30 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Vector;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellRenderer;
 
 public class frmProductGroup extends javax.swing.JInternalFrame {
     Connection con=ConnectDB.getConnection();
     DefaultTableModel model = new DefaultTableModel();
     String sql;
+    String grade;
+    
+   
     public frmProductGroup() {
+        
         initComponents();
          model = (DefaultTableModel)jTable1.getModel();
-        jTable1.getTableHeader().setFont(new java.awt.Font("Saysettha OT", java.awt.Font.BOLD, 12));
-   
+        jTable1.getTableHeader().setFont(new java.awt.Font("Saysettha OT", java.awt.Font.BOLD, 12));    
+        jTable1.setDefaultRenderer(Object.class,new FilterRenderer());
     }
+    
     public void FilterData(){
         try{
             int index = jTable1.getRowCount()-1;
@@ -255,7 +268,7 @@ public class frmProductGroup extends javax.swing.JInternalFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "ລະຫັດ", "ກູ່ມສິນ", "ວັນທີ່ປັບປຸງ", "ຜູ້ປັບປຸງ"
+                "ID", "GroupName", "Dates", "User"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -271,6 +284,11 @@ public class frmProductGroup extends javax.swing.JInternalFrame {
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTable1MouseClicked(evt);
+            }
+        });
+        jTable1.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                jTable1ComponentShown(evt);
             }
         });
         jScrollPane1.setViewportView(jTable1);
@@ -513,6 +531,10 @@ public class frmProductGroup extends javax.swing.JInternalFrame {
            FilterData();
        }catch(Exception e){}
     }//GEN-LAST:event_btnSearchActionPerformed
+
+    private void jTable1ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jTable1ComponentShown
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTable1ComponentShown
     public void ClearText()
     {
         txtID.setText("Auto");
@@ -533,6 +555,7 @@ public class frmProductGroup extends javax.swing.JInternalFrame {
         editor.setEditable(false);
     }
     
+  
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnDelete;

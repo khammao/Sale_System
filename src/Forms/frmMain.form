@@ -69,6 +69,9 @@
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
       <SubComponents>
         <Container class="javax.swing.JPanel" name="jPanel2">
+          <Properties>
+            <Property name="autoscrolls" type="boolean" value="true"/>
+          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
               <BorderConstraints direction="Before"/>
@@ -92,6 +95,12 @@
           </Layout>
           <SubComponents>
             <Container class="com.l2fprod.common.swing.JTaskPane" name="jTaskPane1">
+              <Properties>
+                <Property name="UI" type="com.l2fprod.common.swing.plaf.TaskPaneUI" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                  <ComponentRef name="default"/>
+                </Property>
+                <Property name="autoscrolls" type="boolean" value="true"/>
+              </Properties>
               <SubComponents>
                 <Container class="com.l2fprod.common.swing.JTaskPaneGroup" name="jTaskPaneGroup1">
                   <Properties>
@@ -614,6 +623,9 @@
                         </Property>
                         <Property name="horizontalAlignment" type="int" value="2"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jocHyperlink25ActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="com.xzq.osc.JocHyperlink" name="jocHyperlink20">
                       <Properties>

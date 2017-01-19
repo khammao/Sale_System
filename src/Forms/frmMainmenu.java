@@ -1,18 +1,21 @@
 
+
 package Forms;
 
+import java.awt.Graphics2D;
+import java.awt.Image;
 import java.awt.Toolkit;
-import java.util.HashSet;
-import javax.swing.JDialog;
-import javax.swing.JFrame;
+import java.awt.image.BufferedImage;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 
-public class frmMain extends javax.swing.JFrame {
+public class frmMainmenu extends javax.swing.JFrame {
 
-    public frmMain() {
-        this.setUndecorated(true);
+    /**
+     * Creates new form frmMainmenu
+     */
+    public frmMainmenu() {
+         this.setUndecorated(true);
        //this.setAlwaysOnTop(true);
         this.setResizable(false);
         this.setVisible(true);
@@ -21,17 +24,18 @@ public class frmMain extends javax.swing.JFrame {
         int xsize=(int) tk.getScreenSize().getWidth();
         int ysize=(int) tk.getScreenSize().getHeight();
         this.setSize(xsize, ysize);
-        
     }
 
- 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
         jTaskPane1 = new com.l2fprod.common.swing.JTaskPane();
+        jPanel5 = new javax.swing.JPanel();
+        lbimage = new javax.swing.JLabel();
         jTaskPaneGroup1 = new com.l2fprod.common.swing.JTaskPaneGroup();
         jocHyperlink1 = new com.xzq.osc.JocHyperlink();
         jocHyperlink2 = new com.xzq.osc.JocHyperlink();
@@ -66,108 +70,131 @@ public class frmMain extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 102, 255), 4));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 204), 5));
         jPanel1.setLayout(new java.awt.BorderLayout());
 
-        jPanel2.setAutoscrolls(true);
+        jScrollPane1.setToolTipText("");
 
-        jTaskPane1.setAutoscrolls(true);
+        lbimage.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        lbimage.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbimage.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 0, 153), 1, true));
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lbimage, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lbimage, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+        );
+
+        jTaskPane1.add(jPanel5);
 
         jTaskPaneGroup1.setTitle("ການຂາຍ");
-        jTaskPaneGroup1.setAutoscrolls(true);
-        jTaskPaneGroup1.setFont(new java.awt.Font("Saysettha OT", 1, 18)); // NOI18N
+        jTaskPaneGroup1.setFont(new java.awt.Font("Saysettha OT", 1, 20)); // NOI18N
 
         jocHyperlink1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/13 di sieu thi.png"))); // NOI18N
         jocHyperlink1.setText("ການຂາຍ");
-        jocHyperlink1.setFont(new java.awt.Font("Saysettha OT", 0, 16)); // NOI18N
+        jocHyperlink1.setFont(new java.awt.Font("Saysettha OT", 1, 18)); // NOI18N
         jocHyperlink1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jocHyperlink1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jocHyperlink1ActionPerformed(evt);
+            }
+        });
         jTaskPaneGroup1.getContentPane().add(jocHyperlink1);
 
         jocHyperlink2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/edit-9-xxl.png"))); // NOI18N
         jocHyperlink2.setText("ແກ້ໄຂການຂາຍ");
-        jocHyperlink2.setFont(new java.awt.Font("Saysettha OT", 0, 16)); // NOI18N
+        jocHyperlink2.setFont(new java.awt.Font("Saysettha OT", 1, 18)); // NOI18N
         jocHyperlink2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jTaskPaneGroup1.getContentPane().add(jocHyperlink2);
 
         jocHyperlink3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/salary-icon-17.png"))); // NOI18N
         jocHyperlink3.setText("ການສຳລະເງິນ");
-        jocHyperlink3.setFont(new java.awt.Font("Saysettha OT", 0, 16)); // NOI18N
+        jocHyperlink3.setFont(new java.awt.Font("Saysettha OT", 1, 18)); // NOI18N
         jocHyperlink3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jTaskPaneGroup1.getContentPane().add(jocHyperlink3);
 
         jocHyperlink4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icon-service3.png"))); // NOI18N
         jocHyperlink4.setText("ປີດເງິນສົດ");
-        jocHyperlink4.setFont(new java.awt.Font("Saysettha OT", 0, 16)); // NOI18N
+        jocHyperlink4.setFont(new java.awt.Font("Saysettha OT", 1, 18)); // NOI18N
         jocHyperlink4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jTaskPaneGroup1.getContentPane().add(jocHyperlink4);
 
         jTaskPane1.add(jTaskPaneGroup1);
 
-        jTaskPaneGroup2.setTitle("ການບໍລິການ");
-        jTaskPaneGroup2.setAutoscrolls(true);
-        jTaskPaneGroup2.setFont(new java.awt.Font("Saysettha OT", 1, 18)); // NOI18N
+        jTaskPaneGroup2.setExpanded(false);
+        jTaskPaneGroup2.setTitle("ບໍລິການ");
+        jTaskPaneGroup2.setFont(new java.awt.Font("Saysettha OT", 1, 20)); // NOI18N
 
         jocHyperlink8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/13 di sieu thi.png"))); // NOI18N
         jocHyperlink8.setText("ສັ່ງສິນຄ້າ");
-        jocHyperlink8.setFont(new java.awt.Font("Saysettha OT", 0, 16)); // NOI18N
+        jocHyperlink8.setFont(new java.awt.Font("Saysettha OT", 1, 18)); // NOI18N
         jocHyperlink8.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jTaskPaneGroup2.getContentPane().add(jocHyperlink8);
 
         jocHyperlink13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/13 di sieu thi.png"))); // NOI18N
         jocHyperlink13.setText("ຮັບສິນຄ້າ");
-        jocHyperlink13.setFont(new java.awt.Font("Saysettha OT", 0, 16)); // NOI18N
+        jocHyperlink13.setFont(new java.awt.Font("Saysettha OT", 1, 18)); // NOI18N
         jocHyperlink13.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jTaskPaneGroup2.getContentPane().add(jocHyperlink13);
 
         jocHyperlink7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/asda.png"))); // NOI18N
         jocHyperlink7.setText("Adjust");
-        jocHyperlink7.setFont(new java.awt.Font("Saysettha OT", 0, 16)); // NOI18N
+        jocHyperlink7.setFont(new java.awt.Font("Saysettha OT", 1, 18)); // NOI18N
         jocHyperlink7.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jTaskPaneGroup2.getContentPane().add(jocHyperlink7);
 
         jocHyperlink9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/preferences_settings_tools-512.png"))); // NOI18N
         jocHyperlink9.setText("ການຕັ້ງຄ່າ");
-        jocHyperlink9.setFont(new java.awt.Font("Saysettha OT", 0, 16)); // NOI18N
+        jocHyperlink9.setFont(new java.awt.Font("Saysettha OT", 1, 18)); // NOI18N
         jocHyperlink9.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jTaskPaneGroup2.getContentPane().add(jocHyperlink9);
 
         jTaskPane1.add(jTaskPaneGroup2);
 
+        jTaskPaneGroup3.setExpanded(false);
         jTaskPaneGroup3.setTitle("ລາຍງານ");
-        jTaskPaneGroup3.setAutoscrolls(true);
-        jTaskPaneGroup3.setFont(new java.awt.Font("Saysettha OT", 1, 18)); // NOI18N
+        jTaskPaneGroup3.setFont(new java.awt.Font("Saysettha OT", 1, 20)); // NOI18N
 
         jocHyperlink10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/asda.png"))); // NOI18N
         jocHyperlink10.setText("ສິນຄ້າໃນສາງ");
-        jocHyperlink10.setFont(new java.awt.Font("Saysettha OT", 0, 16)); // NOI18N
+        jocHyperlink10.setFont(new java.awt.Font("Saysettha OT", 1, 18)); // NOI18N
         jocHyperlink10.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jTaskPaneGroup3.getContentPane().add(jocHyperlink10);
 
         jocHyperlink12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/newsletter-icon.png"))); // NOI18N
         jocHyperlink12.setText("ປະເພດສິນຄ້າ");
-        jocHyperlink12.setFont(new java.awt.Font("Saysettha OT", 0, 16)); // NOI18N
+        jocHyperlink12.setFont(new java.awt.Font("Saysettha OT", 1, 18)); // NOI18N
         jocHyperlink12.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jTaskPaneGroup3.getContentPane().add(jocHyperlink12);
 
         jocHyperlink11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/report-icon-blue_247217.png"))); // NOI18N
         jocHyperlink11.setText("ກຸ່ມສິນຄ້າ");
-        jocHyperlink11.setFont(new java.awt.Font("Saysettha OT", 0, 16)); // NOI18N
+        jocHyperlink11.setFont(new java.awt.Font("Saysettha OT", 1, 18)); // NOI18N
         jocHyperlink11.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jTaskPaneGroup3.getContentPane().add(jocHyperlink11);
 
         jTaskPane1.add(jTaskPaneGroup3);
 
+        jTaskPaneGroup4.setExpanded(false);
         jTaskPaneGroup4.setTitle("ຈັດການລະບົບ");
-        jTaskPaneGroup4.setAutoscrolls(true);
-        jTaskPaneGroup4.setFont(new java.awt.Font("Saysettha OT", 1, 18)); // NOI18N
+        jTaskPaneGroup4.setFont(new java.awt.Font("Saysettha OT", 1, 20)); // NOI18N
 
         jocHyperlink14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/Cube.png"))); // NOI18N
         jocHyperlink14.setText("ກຸ່ມສິນຄ້າ");
-        jocHyperlink14.setFont(new java.awt.Font("Saysettha OT", 0, 16)); // NOI18N
+        jocHyperlink14.setFont(new java.awt.Font("Saysettha OT", 1, 18)); // NOI18N
         jocHyperlink14.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jocHyperlink14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -178,7 +205,7 @@ public class frmMain extends javax.swing.JFrame {
 
         jocHyperlink15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/13 di sieu thi.png"))); // NOI18N
         jocHyperlink15.setText("ປະເພດສິນຄ້າ");
-        jocHyperlink15.setFont(new java.awt.Font("Saysettha OT", 0, 16)); // NOI18N
+        jocHyperlink15.setFont(new java.awt.Font("Saysettha OT", 1, 18)); // NOI18N
         jocHyperlink15.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jocHyperlink15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -189,7 +216,7 @@ public class frmMain extends javax.swing.JFrame {
 
         jocHyperlink16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/product-review.png"))); // NOI18N
         jocHyperlink16.setText("ລາຍການສິນຄ້າ");
-        jocHyperlink16.setFont(new java.awt.Font("Saysettha OT", 0, 16)); // NOI18N
+        jocHyperlink16.setFont(new java.awt.Font("Saysettha OT", 1, 18)); // NOI18N
         jocHyperlink16.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jocHyperlink16.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -200,7 +227,7 @@ public class frmMain extends javax.swing.JFrame {
 
         jocHyperlink21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/13 di sieu thi.png"))); // NOI18N
         jocHyperlink21.setText("ຫົວໜ່ວຍສິນຄ້າ");
-        jocHyperlink21.setFont(new java.awt.Font("Saysettha OT", 0, 16)); // NOI18N
+        jocHyperlink21.setFont(new java.awt.Font("Saysettha OT", 1, 18)); // NOI18N
         jocHyperlink21.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jocHyperlink21.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -211,7 +238,7 @@ public class frmMain extends javax.swing.JFrame {
 
         jocHyperlink17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icon_inventory.png"))); // NOI18N
         jocHyperlink17.setText("ຜູ້ສະໜອງ");
-        jocHyperlink17.setFont(new java.awt.Font("Saysettha OT", 0, 16)); // NOI18N
+        jocHyperlink17.setFont(new java.awt.Font("Saysettha OT", 1, 18)); // NOI18N
         jocHyperlink17.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jocHyperlink17.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -222,7 +249,7 @@ public class frmMain extends javax.swing.JFrame {
 
         jocHyperlink18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/employee.png"))); // NOI18N
         jocHyperlink18.setText("ພະນັກງານ");
-        jocHyperlink18.setFont(new java.awt.Font("Saysettha OT", 0, 16)); // NOI18N
+        jocHyperlink18.setFont(new java.awt.Font("Saysettha OT", 1, 18)); // NOI18N
         jocHyperlink18.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jocHyperlink18.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -233,19 +260,19 @@ public class frmMain extends javax.swing.JFrame {
 
         jocHyperlink19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/house-xxl.png"))); // NOI18N
         jocHyperlink19.setText("ຂໍ້ມູນຮ້ານ");
-        jocHyperlink19.setFont(new java.awt.Font("Saysettha OT", 0, 16)); // NOI18N
+        jocHyperlink19.setFont(new java.awt.Font("Saysettha OT", 1, 18)); // NOI18N
         jocHyperlink19.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jTaskPaneGroup4.getContentPane().add(jocHyperlink19);
 
         jocHyperlink6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icon-multi_users-blue.png"))); // NOI18N
         jocHyperlink6.setText("ລູກຄ້າ");
-        jocHyperlink6.setFont(new java.awt.Font("Saysettha OT", 0, 16)); // NOI18N
+        jocHyperlink6.setFont(new java.awt.Font("Saysettha OT", 1, 18)); // NOI18N
         jocHyperlink6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jTaskPaneGroup4.getContentPane().add(jocHyperlink6);
 
         jocHyperlink23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/church-xxl.png"))); // NOI18N
         jocHyperlink23.setText("ແຂວງ");
-        jocHyperlink23.setFont(new java.awt.Font("Saysettha OT", 0, 16)); // NOI18N
+        jocHyperlink23.setFont(new java.awt.Font("Saysettha OT", 1, 18)); // NOI18N
         jocHyperlink23.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jocHyperlink23.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -256,7 +283,7 @@ public class frmMain extends javax.swing.JFrame {
 
         jocHyperlink24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/may_-_how_to_get_rid_of_ants_in_the_house.png"))); // NOI18N
         jocHyperlink24.setText("ເມືອງ");
-        jocHyperlink24.setFont(new java.awt.Font("Saysettha OT", 0, 16)); // NOI18N
+        jocHyperlink24.setFont(new java.awt.Font("Saysettha OT", 1, 18)); // NOI18N
         jocHyperlink24.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jocHyperlink24.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -267,7 +294,7 @@ public class frmMain extends javax.swing.JFrame {
 
         jocHyperlink25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/house-xxl.png"))); // NOI18N
         jocHyperlink25.setText("ບ້ານ");
-        jocHyperlink25.setFont(new java.awt.Font("Saysettha OT", 0, 16)); // NOI18N
+        jocHyperlink25.setFont(new java.awt.Font("Saysettha OT", 1, 18)); // NOI18N
         jocHyperlink25.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jocHyperlink25.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -278,19 +305,19 @@ public class frmMain extends javax.swing.JFrame {
 
         jocHyperlink20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/user-permissions.png"))); // NOI18N
         jocHyperlink20.setText("ສິດທິການໃຊ້ງານ");
-        jocHyperlink20.setFont(new java.awt.Font("Saysettha OT", 0, 16)); // NOI18N
+        jocHyperlink20.setFont(new java.awt.Font("Saysettha OT", 1, 18)); // NOI18N
         jocHyperlink20.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jTaskPaneGroup4.getContentPane().add(jocHyperlink20);
 
         jocHyperlink22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/settings-9-xxl.png"))); // NOI18N
         jocHyperlink22.setText("ຕັ້ງຄ່າລະບົບ");
-        jocHyperlink22.setFont(new java.awt.Font("Saysettha OT", 0, 16)); // NOI18N
+        jocHyperlink22.setFont(new java.awt.Font("Saysettha OT", 1, 18)); // NOI18N
         jocHyperlink22.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jTaskPaneGroup4.getContentPane().add(jocHyperlink22);
 
         btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/switch-512.png"))); // NOI18N
         btnExit.setText("ອອກຈາກລະບົບ");
-        btnExit.setFont(new java.awt.Font("Saysettha OT", 0, 16)); // NOI18N
+        btnExit.setFont(new java.awt.Font("Saysettha OT", 1, 18)); // NOI18N
         btnExit.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -301,20 +328,20 @@ public class frmMain extends javax.swing.JFrame {
 
         jTaskPane1.add(jTaskPaneGroup4);
 
+        jScrollPane1.setViewportView(jTaskPane1);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jTaskPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTaskPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 685, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanel2, java.awt.BorderLayout.LINE_START);
+        jPanel1.add(jPanel2, java.awt.BorderLayout.LINE_END);
 
         jPanel3.setLayout(new java.awt.BorderLayout());
 
@@ -322,11 +349,11 @@ public class frmMain extends javax.swing.JFrame {
         jDesktopPane1.setLayout(jDesktopPane1Layout);
         jDesktopPane1Layout.setHorizontalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1155, Short.MAX_VALUE)
+            .addGap(0, 589, Short.MAX_VALUE)
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1028, Short.MAX_VALUE)
+            .addGap(0, 685, Short.MAX_VALUE)
         );
 
         jPanel3.add(jDesktopPane1, java.awt.BorderLayout.CENTER);
@@ -335,54 +362,22 @@ public class frmMain extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
+        jMenuBar1.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
+        jMenuBar1.setFont(new java.awt.Font("Saysettha OT", 0, 18)); // NOI18N
+
         jMenu1.setText("Sale Management");
-        jMenu1.setEnabled(false);
-        jMenu1.setFont(new java.awt.Font("Saysettha OT", 1, 18)); // NOI18N
+        jMenu1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("------------------------->>");
+        jMenu2.setText("------------------------->");
         jMenu2.setEnabled(false);
+        jMenu2.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jMenuBar1.add(jMenu2);
-
-        jMenu3.setText("Khammao Xiong 2016");
-        jMenuBar1.add(jMenu3);
 
         setJMenuBar(jMenuBar1);
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
-        int reply= JOptionPane.showConfirmDialog(null,"Are you sure you want to close?","Close?",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
-        if(reply == JOptionPane.YES_OPTION){
-            System.exit(0);
-        }
-    }//GEN-LAST:event_btnExitActionPerformed
-
-    private void jocHyperlink18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jocHyperlink18ActionPerformed
-        frmEmplyee e = new frmEmplyee();
-        e.setVisible(true);
-        jDesktopPane1.add(e);
-    }//GEN-LAST:event_jocHyperlink18ActionPerformed
-
-    private void jocHyperlink21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jocHyperlink21ActionPerformed
-        frmUnit e = new frmUnit();
-        e.setVisible(true);
-        jDesktopPane1.add(e);
-    }//GEN-LAST:event_jocHyperlink21ActionPerformed
-
-    private void jocHyperlink16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jocHyperlink16ActionPerformed
-        frmProducts e = new frmProducts();
-        e.setVisible(true);
-        jDesktopPane1.add(e);
-    }//GEN-LAST:event_jocHyperlink16ActionPerformed
-
-    private void jocHyperlink15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jocHyperlink15ActionPerformed
-        frmCategory e = new frmCategory();
-        e.setVisible(true);
-        jDesktopPane1.add(e);
-    }//GEN-LAST:event_jocHyperlink15ActionPerformed
 
     private void jocHyperlink14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jocHyperlink14ActionPerformed
         frmProductGroup e = new frmProductGroup();
@@ -390,11 +385,35 @@ public class frmMain extends javax.swing.JFrame {
         jDesktopPane1.add(e);
     }//GEN-LAST:event_jocHyperlink14ActionPerformed
 
+    private void jocHyperlink15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jocHyperlink15ActionPerformed
+        frmCategory e = new frmCategory();
+        e.setVisible(true);
+        jDesktopPane1.add(e);
+    }//GEN-LAST:event_jocHyperlink15ActionPerformed
+
+    private void jocHyperlink16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jocHyperlink16ActionPerformed
+        frmProducts e = new frmProducts();
+        e.setVisible(true);
+        jDesktopPane1.add(e);
+    }//GEN-LAST:event_jocHyperlink16ActionPerformed
+
+    private void jocHyperlink21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jocHyperlink21ActionPerformed
+        frmUnit e = new frmUnit();
+        e.setVisible(true);
+        jDesktopPane1.add(e);
+    }//GEN-LAST:event_jocHyperlink21ActionPerformed
+
     private void jocHyperlink17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jocHyperlink17ActionPerformed
         frmSuppliers e = new frmSuppliers();
         e.setVisible(true);
         jDesktopPane1.add(e);
     }//GEN-LAST:event_jocHyperlink17ActionPerformed
+
+    private void jocHyperlink18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jocHyperlink18ActionPerformed
+        frmEmplyee e = new frmEmplyee();
+        e.setVisible(true);
+        jDesktopPane1.add(e);
+    }//GEN-LAST:event_jocHyperlink18ActionPerformed
 
     private void jocHyperlink23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jocHyperlink23ActionPerformed
         frmProvince e = new frmProvince();
@@ -414,6 +433,42 @@ public class frmMain extends javax.swing.JFrame {
         jDesktopPane1.add(e);
     }//GEN-LAST:event_jocHyperlink25ActionPerformed
 
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+        int reply= JOptionPane.showConfirmDialog(null,"Are you sure you want to close?","Close?",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+        if(reply == JOptionPane.YES_OPTION){
+            System.exit(0);
+        }
+    }//GEN-LAST:event_btnExitActionPerformed
+ private BufferedImage ResizeSccall(Image im, int w, int h){
+        try {
+            BufferedImage buff = new BufferedImage(w, h, BufferedImage.TYPE_INT_RGB);
+            Graphics2D g = buff.createGraphics();
+            g.drawImage(im, 0, 0, w, h, null);
+            g.dispose();
+            return buff;
+            
+        } catch (Exception e) {
+        }
+        return null;
+    }
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        try {
+
+            Image im = new ImageIcon("src/icon/FlagLaos.jpg").getImage();
+            Image icon = ResizeSccall(im, lbimage.getWidth(), lbimage.getHeight());
+            lbimage.setIcon(new ImageIcon(icon));     
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_formWindowOpened
+
+    private void jocHyperlink1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jocHyperlink1ActionPerformed
+//         frmTest e = new frmTest();
+//        e.setVisible(true);
+//        jDesktopPane1.add(e);
+    }//GEN-LAST:event_jocHyperlink1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -431,35 +486,35 @@ public class frmMain extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frmMain.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmMainmenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frmMain.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmMainmenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frmMain.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmMainmenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frmMain.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmMainmenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        JDialog.setDefaultLookAndFeelDecorated(true);
-        
+
+        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new frmMain().setVisible(true);
-                
+                new frmMainmenu().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.xzq.osc.JocHyperlink btnExit;
-    public javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JScrollPane jScrollPane1;
     private com.l2fprod.common.swing.JTaskPane jTaskPane1;
     private com.l2fprod.common.swing.JTaskPaneGroup jTaskPaneGroup1;
     private com.l2fprod.common.swing.JTaskPaneGroup jTaskPaneGroup2;
@@ -489,5 +544,6 @@ public class frmMain extends javax.swing.JFrame {
     private com.xzq.osc.JocHyperlink jocHyperlink7;
     private com.xzq.osc.JocHyperlink jocHyperlink8;
     private com.xzq.osc.JocHyperlink jocHyperlink9;
+    private javax.swing.JLabel lbimage;
     // End of variables declaration//GEN-END:variables
 }
