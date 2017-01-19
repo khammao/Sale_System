@@ -34,8 +34,6 @@ public class frmMainmenu extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTaskPane1 = new com.l2fprod.common.swing.JTaskPane();
-        jPanel5 = new javax.swing.JPanel();
-        lbimage = new javax.swing.JLabel();
         jTaskPaneGroup1 = new com.l2fprod.common.swing.JTaskPaneGroup();
         jocHyperlink1 = new com.xzq.osc.JocHyperlink();
         jocHyperlink2 = new com.xzq.osc.JocHyperlink();
@@ -82,23 +80,6 @@ public class frmMainmenu extends javax.swing.JFrame {
         jPanel1.setLayout(new java.awt.BorderLayout());
 
         jScrollPane1.setToolTipText("");
-
-        lbimage.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        lbimage.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbimage.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 0, 153), 1, true));
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lbimage, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lbimage, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-        );
-
-        jTaskPane1.add(jPanel5);
 
         jTaskPaneGroup1.setTitle("ການຂາຍ");
         jTaskPaneGroup1.setFont(new java.awt.Font("Saysettha OT", 1, 20)); // NOI18N
@@ -338,7 +319,9 @@ public class frmMainmenu extends javax.swing.JFrame {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 685, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 86, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 602, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jPanel1.add(jPanel2, java.awt.BorderLayout.LINE_END);
@@ -349,11 +332,11 @@ public class frmMainmenu extends javax.swing.JFrame {
         jDesktopPane1.setLayout(jDesktopPane1Layout);
         jDesktopPane1Layout.setHorizontalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 589, Short.MAX_VALUE)
+            .addGap(0, 618, Short.MAX_VALUE)
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 685, Short.MAX_VALUE)
+            .addGap(0, 688, Short.MAX_VALUE)
         );
 
         jPanel3.add(jDesktopPane1, java.awt.BorderLayout.CENTER);
@@ -366,12 +349,12 @@ public class frmMainmenu extends javax.swing.JFrame {
         jMenuBar1.setFont(new java.awt.Font("Saysettha OT", 0, 18)); // NOI18N
 
         jMenu1.setText("Sale Management");
-        jMenu1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jMenu1.setFont(new java.awt.Font("Saysettha OT", 1, 14)); // NOI18N
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("------------------------->");
         jMenu2.setEnabled(false);
-        jMenu2.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jMenu2.setFont(new java.awt.Font("Saysettha OT", 1, 14)); // NOI18N
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
@@ -453,10 +436,10 @@ public class frmMainmenu extends javax.swing.JFrame {
     }
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         try {
-
-            Image im = new ImageIcon("src/icon/FlagLaos.jpg").getImage();
-            Image icon = ResizeSccall(im, lbimage.getWidth(), lbimage.getHeight());
-            lbimage.setIcon(new ImageIcon(icon));     
+//
+//            Image im = new ImageIcon("src/icon/FlagLaos.jpg").getImage();
+//            Image icon = ResizeSccall(im, lbimage.getWidth(), lbimage.getHeight());
+//            lbimage.setIcon(new ImageIcon(icon));     
             
         } catch (Exception e) {
             e.printStackTrace();
@@ -513,7 +496,6 @@ public class frmMainmenu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private com.l2fprod.common.swing.JTaskPane jTaskPane1;
     private com.l2fprod.common.swing.JTaskPaneGroup jTaskPaneGroup1;
@@ -544,6 +526,5 @@ public class frmMainmenu extends javax.swing.JFrame {
     private com.xzq.osc.JocHyperlink jocHyperlink7;
     private com.xzq.osc.JocHyperlink jocHyperlink8;
     private com.xzq.osc.JocHyperlink jocHyperlink9;
-    private javax.swing.JLabel lbimage;
     // End of variables declaration//GEN-END:variables
 }

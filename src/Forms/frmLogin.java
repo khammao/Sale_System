@@ -3,17 +3,19 @@
 package Forms;
 
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.sql.Connection;
+import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author User
- */
 public class frmLogin extends javax.swing.JDialog {
-
-    /**
-     * Creates new form frmLogin
-     */
+//    Connection c = ConnectDB.getConnection();
+    private static boolean login;
+    private static String user_name;
+    static String permission;
+    String sql;
     public frmLogin(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         this.setUndecorated(true);
@@ -22,11 +24,58 @@ public class frmLogin extends javax.swing.JDialog {
  
         txtPass.setToolTipText("<html><b><font color=red>"+ "Your Password" + "</font></b></html>");
         txtStatus.setEnabled(false);
-       //this.setAlwaysOnTop(true);
-       // this.setResizable(false);
-        //this.setVisible(true);
+        
+        txtEmail.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                txtPass.requestFocusInWindow();    
+            }
+        }); 
+        
+        txtPass.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Permission();
+                btnLogin.requestFocusInWindow();    
+            }
+        });    
     }
-
+        //   @Override
+    public void Permission(){
+        try {
+            Connection c = ConnectDB.getConnection();
+              sql="Select UserStatus from UserLogin where UserName = '"+ txtEmail.getText() +"' and UserPassword = '"+ txtPass.getText()+"'";
+                ResultSet rs = c.createStatement().executeQuery(sql);
+                if (rs.next()){
+                    txtStatus.setText(rs.getString("UserStatus"));
+                 }
+        } catch (Exception e) {
+        }
+    }
+    public void Login(){
+        try {
+            Connection c = ConnectDB.getConnection();
+            sql="Select UserName, UserPassword from UserLogin where UserName = '"+ txtEmail.getText() +"' and UserPassword = '"+ txtPass.getText()+"'";
+            ResultSet rs = c.createStatement().executeQuery(sql);
+            if (rs.next()){
+                frmLogin.login = true;
+                frmLogin.user_name = rs.getString("UserName");
+                //frmLogin.permission = rs.getString("UserStatus");
+                dispose();
+                frmMainmenu m = new frmMainmenu();
+                m.setVisible(true);  
+                
+             }else{
+                int type = JOptionPane.WARNING_MESSAGE;
+                String msg = "User and password incorrect";
+                String t = "Message.... ຂໍ້ຄວາມ";
+                JOptionPane.showMessageDialog(this, msg, t,type);
+                txtEmail.setText("");
+                txtPass.setText("");
+                txtEmail.requestFocus();
+            }
+        } catch (Exception e) {}
+}
    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -38,7 +87,7 @@ public class frmLogin extends javax.swing.JDialog {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         txtStatus = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        btnLogin = new javax.swing.JButton();
         btnExit = new javax.swing.JButton();
         txtPass = new javax.swing.JPasswordField();
 
@@ -59,9 +108,19 @@ public class frmLogin extends javax.swing.JDialog {
 
         txtStatus.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
 
-        jButton1.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/sso-icon.png"))); // NOI18N
-        jButton1.setText("Login");
+        btnLogin.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        btnLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/sso-icon.png"))); // NOI18N
+        btnLogin.setText("Login");
+        btnLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoginActionPerformed(evt);
+            }
+        });
+        btnLogin.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btnLoginKeyPressed(evt);
+            }
+        });
 
         btnExit.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/x-mark-256.png"))); // NOI18N
@@ -73,6 +132,11 @@ public class frmLogin extends javax.swing.JDialog {
         });
 
         txtPass.setFont(new java.awt.Font("Saysettha OT", 1, 12)); // NOI18N
+        txtPass.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                txtPassMouseEntered(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -101,7 +165,7 @@ public class frmLogin extends javax.swing.JDialog {
                 .addGap(19, 26, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(btnLogin)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnExit))
         );
@@ -122,7 +186,7 @@ public class frmLogin extends javax.swing.JDialog {
                     .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
@@ -139,6 +203,35 @@ public class frmLogin extends javax.swing.JDialog {
 //        }
         System.exit(0);
     }//GEN-LAST:event_btnExitActionPerformed
+
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+        Permission();
+            if(txtStatus.getText().equals("")){
+                 int type = JOptionPane.WARNING_MESSAGE;
+                 String msg = "Plese check Permission";
+                 String t = "Message.... ຂໍ້ຄວາມ";
+                 JOptionPane.showMessageDialog(this, msg, t,type);
+            }else{
+                Login();
+        }
+    }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void txtPassMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtPassMouseEntered
+         
+    }//GEN-LAST:event_txtPassMouseEntered
+
+    private void btnLoginKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnLoginKeyPressed
+        if (evt.getKeyCode()==KeyEvent.VK_ENTER){
+            if(txtStatus.getText().equals("")){
+                int type = JOptionPane.WARNING_MESSAGE;
+                String msg = "Plese check Permission";
+                String t = "Message.... ຂໍ້ຄວາມ";
+                JOptionPane.showMessageDialog(this, msg, t,type);
+            }else{
+                Login();
+            }
+        }
+    }//GEN-LAST:event_btnLoginKeyPressed
 
     /**
      * @param args the command line arguments
@@ -184,7 +277,7 @@ public class frmLogin extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnExit;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnLogin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
