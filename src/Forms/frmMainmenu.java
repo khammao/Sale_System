@@ -2,18 +2,35 @@
 
 package Forms;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import javax.swing.ImageIcon;
+import javax.swing.JDesktopPane;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.Timer;
 
 public class frmMainmenu extends javax.swing.JFrame {
 
     /**
      * Creates new form frmMainmenu
      */
+   
+
+    private String Acc;
+    private String Per;
     public frmMainmenu() {
          this.setUndecorated(true);
        //this.setAlwaysOnTop(true);
@@ -24,6 +41,36 @@ public class frmMainmenu extends javax.swing.JFrame {
         int xsize=(int) tk.getScreenSize().getWidth();
         int ysize=(int) tk.getScreenSize().getHeight();
         this.setSize(xsize, ysize);
+       Acc=frmLogin.user_name.toString();
+       LB_Account.setText(Acc);
+       Per=frmLogin.permission.toString();
+       LB_Permission.setText(Per);
+// Create class Start datetime
+        final DateFormat timeFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        ActionListener timerListener = new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
+                Date date = new Date();
+                String time = timeFormat.format(date);
+                LB_Date.setText(time);
+            }
+        };
+        Timer timer = new Timer(1000, timerListener);
+        // to make sure it doesn't wait one second at the start
+        timer.setInitialDelay(0);
+        timer.start();
+        try {
+            ImageIcon icon = new ImageIcon("src/Icon/Backgroud.png");
+            JLabel label = new JLabel(icon);
+            label.setBounds(0, 0, icon.getIconWidth(), icon.getIconHeight());
+
+            jDesktopPane1.add(label, new Integer(Integer.MIN_VALUE));
+         
+        } catch(Exception e) {
+            System.out.println(e);
+        }
+       
     }
 
     @SuppressWarnings("unchecked")
@@ -63,6 +110,9 @@ public class frmMainmenu extends javax.swing.JFrame {
         jocHyperlink20 = new com.xzq.osc.JocHyperlink();
         jocHyperlink22 = new com.xzq.osc.JocHyperlink();
         btnExit = new com.xzq.osc.JocHyperlink();
+        LB_Account = new javax.swing.JLabel();
+        LB_Permission = new javax.swing.JLabel();
+        LB_Date = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -76,7 +126,7 @@ public class frmMainmenu extends javax.swing.JFrame {
             }
         });
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 204), 5));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 153, 255), 5));
         jPanel1.setLayout(new java.awt.BorderLayout());
 
         jScrollPane1.setToolTipText("");
@@ -311,20 +361,51 @@ public class frmMainmenu extends javax.swing.JFrame {
 
         jScrollPane1.setViewportView(jTaskPane1);
 
+        LB_Account.setFont(new java.awt.Font("Saysettha OT", 1, 12)); // NOI18N
+        LB_Account.setForeground(new java.awt.Color(51, 102, 255));
+        LB_Account.setText("UserLogin");
+
+        LB_Permission.setFont(new java.awt.Font("Saysettha OT", 1, 12)); // NOI18N
+        LB_Permission.setForeground(new java.awt.Color(51, 102, 255));
+        LB_Permission.setText("Permission");
+
+        LB_Date.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        LB_Date.setForeground(new java.awt.Color(255, 51, 102));
+        LB_Date.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        LB_Date.setText("Datetime");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(LB_Account, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(LB_Permission, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(18, 18, 18))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
+                    .addComponent(LB_Date, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 86, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 602, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(LB_Account)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(LB_Permission)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(LB_Date)
+                .addGap(7, 7, 7)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 616, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel1.add(jPanel2, java.awt.BorderLayout.LINE_END);
+        jPanel1.add(jPanel2, java.awt.BorderLayout.LINE_START);
 
         jPanel3.setLayout(new java.awt.BorderLayout());
 
@@ -332,11 +413,11 @@ public class frmMainmenu extends javax.swing.JFrame {
         jDesktopPane1.setLayout(jDesktopPane1Layout);
         jDesktopPane1Layout.setHorizontalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 618, Short.MAX_VALUE)
+            .addGap(0, 592, Short.MAX_VALUE)
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 688, Short.MAX_VALUE)
+            .addGap(0, 718, Short.MAX_VALUE)
         );
 
         jPanel3.add(jDesktopPane1, java.awt.BorderLayout.CENTER);
@@ -436,7 +517,7 @@ public class frmMainmenu extends javax.swing.JFrame {
     }
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         try {
-//
+       
 //            Image im = new ImageIcon("src/icon/FlagLaos.jpg").getImage();
 //            Image icon = ResizeSccall(im, lbimage.getWidth(), lbimage.getHeight());
 //            lbimage.setIcon(new ImageIcon(icon));     
@@ -483,11 +564,15 @@ public class frmMainmenu extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new frmMainmenu().setVisible(true);
+                
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel LB_Account;
+    private javax.swing.JLabel LB_Date;
+    private javax.swing.JLabel LB_Permission;
     private com.xzq.osc.JocHyperlink btnExit;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JMenu jMenu1;

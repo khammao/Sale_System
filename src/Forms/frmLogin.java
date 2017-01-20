@@ -12,8 +12,8 @@ import javax.swing.JOptionPane;
 
 public class frmLogin extends javax.swing.JDialog {
 //    Connection c = ConnectDB.getConnection();
-    private static boolean login;
-    private static String user_name;
+    public static boolean login;
+    public static String user_name;
     static String permission;
     String sql;
     public frmLogin(java.awt.Frame parent, boolean modal) {
@@ -48,6 +48,7 @@ public class frmLogin extends javax.swing.JDialog {
                 ResultSet rs = c.createStatement().executeQuery(sql);
                 if (rs.next()){
                     txtStatus.setText(rs.getString("UserStatus"));
+                    frmLogin.permission = rs.getString("UserStatus");
                  }
         } catch (Exception e) {
         }
@@ -282,8 +283,8 @@ public class frmLogin extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField txtEmail;
-    private javax.swing.JPasswordField txtPass;
-    private javax.swing.JTextField txtStatus;
+    public javax.swing.JTextField txtEmail;
+    public javax.swing.JPasswordField txtPass;
+    public javax.swing.JTextField txtStatus;
     // End of variables declaration//GEN-END:variables
 }
