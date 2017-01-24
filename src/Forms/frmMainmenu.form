@@ -14,9 +14,10 @@
         </Property>
       </Properties>
       <SubComponents>
-        <Menu class="javax.swing.JMenu" name="jMenu1">
+        <Menu class="javax.swing.JMenu" name="Lb_Programe_Title">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Sale Management"/>
+            <Property name="text" type="java.lang.String" value="&#xea5;&#xeb0;&#xe9a;&#xebb;&#xe9a;&#xe88;&#xeb1;&#xe94;&#xe81;&#xeb2;&#xe99;&#xe81;&#xeb2;&#xe99;&#xe82;&#xeb2;&#xe8d;"/>
+            <Property name="enabled" type="boolean" value="false"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Saysettha OT" size="14" style="1"/>
             </Property>
@@ -141,7 +142,7 @@
                         </Property>
                       </Properties>
                       <SubComponents>
-                        <Component class="com.xzq.osc.JocHyperlink" name="jocHyperlink1">
+                        <Component class="com.xzq.osc.JocHyperlink" name="Lb_Sales">
                           <Properties>
                             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                               <Image iconType="3" name="/Icon/13 di sieu thi.png"/>
@@ -153,10 +154,10 @@
                             <Property name="horizontalAlignment" type="int" value="2"/>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jocHyperlink1ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Lb_SalesActionPerformed"/>
                           </Events>
                         </Component>
-                        <Component class="com.xzq.osc.JocHyperlink" name="jocHyperlink2">
+                        <Component class="com.xzq.osc.JocHyperlink" name="Lb_Edit_Sales">
                           <Properties>
                             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                               <Image iconType="3" name="/Icon/edit-9-xxl.png"/>
@@ -168,7 +169,7 @@
                             <Property name="horizontalAlignment" type="int" value="2"/>
                           </Properties>
                         </Component>
-                        <Component class="com.xzq.osc.JocHyperlink" name="jocHyperlink3">
+                        <Component class="com.xzq.osc.JocHyperlink" name="Lb_Payment">
                           <Properties>
                             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                               <Image iconType="3" name="/Icon/salary-icon-17.png"/>
@@ -180,7 +181,7 @@
                             <Property name="horizontalAlignment" type="int" value="2"/>
                           </Properties>
                         </Component>
-                        <Component class="com.xzq.osc.JocHyperlink" name="jocHyperlink4">
+                        <Component class="com.xzq.osc.JocHyperlink" name="Lb_Close_Maney">
                           <Properties>
                             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                               <Image iconType="3" name="/Icon/icon-service3.png"/>

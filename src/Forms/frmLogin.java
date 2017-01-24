@@ -2,12 +2,15 @@
 
 package Forms;
 
+import static Forms.ChangeLanguage.LangType;
+import static Forms.ChangeLanguage.getLabel;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
 
 public class frmLogin extends javax.swing.JDialog {
@@ -16,10 +19,18 @@ public class frmLogin extends javax.swing.JDialog {
     public static String user_name;
     static String permission;
     String sql;
+    private void groupButton(){
+        ButtonGroup bg=new ButtonGroup();
+        bg.add(RadLao);
+        bg.add(RadEng);
+    }
     public frmLogin(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         this.setUndecorated(true);
         initComponents();
+        groupButton();
+        //LangType="Lao";
+       
         txtEmail.setToolTipText("<html><b><font color=red>"+"example@address.com"+ "</font></b></html>");
  
         txtPass.setToolTipText("<html><b><font color=red>"+ "Your Password" + "</font></b></html>");
@@ -83,35 +94,45 @@ public class frmLogin extends javax.swing.JDialog {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        Lb_Email = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        Lb_Pass = new javax.swing.JLabel();
+        Lb_Permission = new javax.swing.JLabel();
         txtStatus = new javax.swing.JTextField();
         btnLogin = new javax.swing.JButton();
         btnExit = new javax.swing.JButton();
         txtPass = new javax.swing.JPasswordField();
+        RadLao = new javax.swing.JRadioButton();
+        RadEng = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 102, 255), 4, true));
 
-        jLabel1.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        jLabel1.setText("E-mail:");
+        Lb_Email.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        Lb_Email.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        Lb_Email.setText("ອີເມວ:");
 
         txtEmail.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
 
-        jLabel2.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        jLabel2.setText("Password:");
+        Lb_Pass.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        Lb_Pass.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        Lb_Pass.setText("ລະຫັດຜ່ານ:");
 
-        jLabel3.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        jLabel3.setText("Status:");
+        Lb_Permission.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        Lb_Permission.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        Lb_Permission.setText("ສິດທີໃຊ້ງານ:");
 
         txtStatus.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
 
         btnLogin.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         btnLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/sso-icon.png"))); // NOI18N
-        btnLogin.setText("Login");
+        btnLogin.setText("ເຂົ້າລະບົບ");
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLoginActionPerformed(evt);
@@ -125,7 +146,7 @@ public class frmLogin extends javax.swing.JDialog {
 
         btnExit.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/x-mark-256.png"))); // NOI18N
-        btnExit.setText("Cancel");
+        btnExit.setText("ຍົກເລີກ");
         btnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnExitActionPerformed(evt);
@@ -139,51 +160,72 @@ public class frmLogin extends javax.swing.JDialog {
             }
         });
 
+        RadLao.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        RadLao.setText("Lao");
+        RadLao.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        RadLao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RadLaoActionPerformed(evt);
+            }
+        });
+
+        RadEng.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        RadEng.setText("English");
+        RadEng.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        RadEng.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RadEngActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(RadLao)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(RadEng))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(Lb_Email, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Lb_Pass, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Lb_Permission, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(18, 18, 18))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(36, 36, 36))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(38, 38, 38)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtStatus, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(txtPass, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(txtEmail, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(19, 26, Short.MAX_VALUE))
+                            .addComponent(txtStatus, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(txtPass, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtEmail, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnLogin)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnExit))
+                .addComponent(btnExit)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
+                .addGap(5, 5, 5)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
+                    .addComponent(RadLao)
+                    .addComponent(RadEng))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Lb_Email)
                     .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
+                    .addComponent(Lb_Pass)
                     .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
+                    .addComponent(Lb_Permission)
                     .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -234,6 +276,36 @@ public class frmLogin extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_btnLoginKeyPressed
 
+    private void RadLaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RadLaoActionPerformed
+       showLang();
+    }//GEN-LAST:event_RadLaoActionPerformed
+
+    private void RadEngActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RadEngActionPerformed
+       showLang();
+    }//GEN-LAST:event_RadEngActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+      //  RadLao.setSelected(true);
+       //  RadEng.setSelected(true);
+    }//GEN-LAST:event_formWindowOpened
+public void showLang(){
+         try {
+             if(RadLao.isSelected()==true){
+                LangType="Lao";
+             }else {
+                LangType="Eng";
+             }
+             RadLao.setText(getLabel("RadLao"));
+             RadEng.setText(getLabel("RadEng"));
+             Lb_Email.setText(getLabel("Lb_Email"));
+             Lb_Pass.setText(getLabel("Lb_Pass"));
+             Lb_Permission.setText(getLabel("Lb_Permission"));
+             btnLogin.setText(getLabel("btnLogin"));
+             btnExit.setText(getLabel("btnExit"));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -277,11 +349,13 @@ public class frmLogin extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Lb_Email;
+    private javax.swing.JLabel Lb_Pass;
+    private javax.swing.JLabel Lb_Permission;
+    public javax.swing.JRadioButton RadEng;
+    public javax.swing.JRadioButton RadLao;
     private javax.swing.JButton btnExit;
     private javax.swing.JButton btnLogin;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     public javax.swing.JTextField txtEmail;
     public javax.swing.JPasswordField txtPass;

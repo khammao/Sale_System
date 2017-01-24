@@ -5,6 +5,7 @@ import java.sql.*;
 import javax.swing.JOptionPane;
 
 public class ConnectDB {
+    
     public static Connection getConnection()
     {
         try
@@ -26,4 +27,5 @@ public class ConnectDB {
         }
         return null;
     }
+    
 }
