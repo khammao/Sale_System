@@ -86,7 +86,28 @@ public class frmMainmenu extends javax.swing.JFrame {
                 LangType="Eng";
              }
              Lb_Programe_Title.setText(getLabel("Lb_Programe_Title"));
-            
+            jTaskPaneGroup1.setText(getLabel("jTaskPaneGroup1"));
+            jTaskPaneGroup2.setText(getLabel("jTaskPaneGroup2"));
+            jTaskPaneGroup3.setText(getLabel("jTaskPaneGroup3"));
+            jTaskPaneGroup4.setText(getLabel("jTaskPaneGroup4"));
+            Lb_Sales.setText(getLabel("Lb_Sales"));
+            Lb_Edit_Sales.setText(getLabel("Lb_Edit_Sales"));
+            Lb_Payment.setText(getLabel("Lb_Payment"));
+            Lb_Close_Maney.setText(getLabel("Lb_Close_Maney"));
+            Lb_Group.setText(getLabel("Lb_Group"));
+            Lb_Cat.setText(getLabel("Lb_Cat"));
+            Lb_Products.setText(getLabel("Lb_Products"));
+            Lb_Unit.setText(getLabel("Lb_Unit"));
+            Lb_Supplier.setText(getLabel("Lb_Supplier"));
+            Lb_Employee.setText(getLabel("Lb_Employee"));
+            Lb_Store.setText(getLabel("Lb_Store"));
+            Lb_Customers.setText(getLabel("Lb_Customers"));
+            Lb_Provinces.setText(getLabel("Lb_Provinces"));
+            Lb_Districts.setText(getLabel("Lb_Districts"));
+            Lb_Villages.setText(getLabel("Lb_Villages"));
+            Lb_Promission.setText(getLabel("Lb_Promission"));
+            Lb_Setting.setText(getLabel("Lb_Setting"));
+            Lb_Close.setText(getLabel("Lb_Close"));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -114,20 +135,20 @@ public class frmMainmenu extends javax.swing.JFrame {
         jocHyperlink12 = new com.xzq.osc.JocHyperlink();
         jocHyperlink11 = new com.xzq.osc.JocHyperlink();
         jTaskPaneGroup4 = new com.l2fprod.common.swing.JTaskPaneGroup();
-        jocHyperlink14 = new com.xzq.osc.JocHyperlink();
-        jocHyperlink15 = new com.xzq.osc.JocHyperlink();
-        jocHyperlink16 = new com.xzq.osc.JocHyperlink();
-        jocHyperlink21 = new com.xzq.osc.JocHyperlink();
-        jocHyperlink17 = new com.xzq.osc.JocHyperlink();
-        jocHyperlink18 = new com.xzq.osc.JocHyperlink();
-        jocHyperlink19 = new com.xzq.osc.JocHyperlink();
-        jocHyperlink6 = new com.xzq.osc.JocHyperlink();
-        jocHyperlink23 = new com.xzq.osc.JocHyperlink();
-        jocHyperlink24 = new com.xzq.osc.JocHyperlink();
-        jocHyperlink25 = new com.xzq.osc.JocHyperlink();
-        jocHyperlink20 = new com.xzq.osc.JocHyperlink();
-        jocHyperlink22 = new com.xzq.osc.JocHyperlink();
-        btnExit = new com.xzq.osc.JocHyperlink();
+        Lb_Group = new com.xzq.osc.JocHyperlink();
+        Lb_Cat = new com.xzq.osc.JocHyperlink();
+        Lb_Products = new com.xzq.osc.JocHyperlink();
+        Lb_Unit = new com.xzq.osc.JocHyperlink();
+        Lb_Supplier = new com.xzq.osc.JocHyperlink();
+        Lb_Employee = new com.xzq.osc.JocHyperlink();
+        Lb_Store = new com.xzq.osc.JocHyperlink();
+        Lb_Customers = new com.xzq.osc.JocHyperlink();
+        Lb_Provinces = new com.xzq.osc.JocHyperlink();
+        Lb_Districts = new com.xzq.osc.JocHyperlink();
+        Lb_Villages = new com.xzq.osc.JocHyperlink();
+        Lb_Promission = new com.xzq.osc.JocHyperlink();
+        Lb_Setting = new com.xzq.osc.JocHyperlink();
+        Lb_Close = new com.xzq.osc.JocHyperlink();
         LB_Account = new javax.swing.JLabel();
         LB_Permission = new javax.swing.JLabel();
         LB_Date = new javax.swing.JLabel();
@@ -149,6 +170,7 @@ public class frmMainmenu extends javax.swing.JFrame {
 
         jScrollPane1.setToolTipText("");
 
+        jTaskPaneGroup1.setExpanded(false);
         jTaskPaneGroup1.setTitle("ການຂາຍ");
         jTaskPaneGroup1.setFont(new java.awt.Font("Saysettha OT", 1, 20)); // NOI18N
 
@@ -237,143 +259,142 @@ public class frmMainmenu extends javax.swing.JFrame {
 
         jTaskPane1.add(jTaskPaneGroup3);
 
-        jTaskPaneGroup4.setExpanded(false);
         jTaskPaneGroup4.setTitle("ຈັດການລະບົບ");
         jTaskPaneGroup4.setFont(new java.awt.Font("Saysettha OT", 1, 20)); // NOI18N
 
-        jocHyperlink14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/Cube.png"))); // NOI18N
-        jocHyperlink14.setText("ກຸ່ມສິນຄ້າ");
-        jocHyperlink14.setFont(new java.awt.Font("Saysettha OT", 1, 18)); // NOI18N
-        jocHyperlink14.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jocHyperlink14.addActionListener(new java.awt.event.ActionListener() {
+        Lb_Group.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/Cube.png"))); // NOI18N
+        Lb_Group.setText("ກຸ່ມສິນຄ້າ");
+        Lb_Group.setFont(new java.awt.Font("Saysettha OT", 1, 18)); // NOI18N
+        Lb_Group.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Lb_Group.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jocHyperlink14ActionPerformed(evt);
+                Lb_GroupActionPerformed(evt);
             }
         });
-        jTaskPaneGroup4.getContentPane().add(jocHyperlink14);
+        jTaskPaneGroup4.getContentPane().add(Lb_Group);
 
-        jocHyperlink15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/13 di sieu thi.png"))); // NOI18N
-        jocHyperlink15.setText("ປະເພດສິນຄ້າ");
-        jocHyperlink15.setFont(new java.awt.Font("Saysettha OT", 1, 18)); // NOI18N
-        jocHyperlink15.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jocHyperlink15.addActionListener(new java.awt.event.ActionListener() {
+        Lb_Cat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/13 di sieu thi.png"))); // NOI18N
+        Lb_Cat.setText("ປະເພດສິນຄ້າ");
+        Lb_Cat.setFont(new java.awt.Font("Saysettha OT", 1, 18)); // NOI18N
+        Lb_Cat.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Lb_Cat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jocHyperlink15ActionPerformed(evt);
+                Lb_CatActionPerformed(evt);
             }
         });
-        jTaskPaneGroup4.getContentPane().add(jocHyperlink15);
+        jTaskPaneGroup4.getContentPane().add(Lb_Cat);
 
-        jocHyperlink16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/product-review.png"))); // NOI18N
-        jocHyperlink16.setText("ລາຍການສິນຄ້າ");
-        jocHyperlink16.setFont(new java.awt.Font("Saysettha OT", 1, 18)); // NOI18N
-        jocHyperlink16.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jocHyperlink16.addActionListener(new java.awt.event.ActionListener() {
+        Lb_Products.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/product-review.png"))); // NOI18N
+        Lb_Products.setText("ລາຍການສິນຄ້າ");
+        Lb_Products.setFont(new java.awt.Font("Saysettha OT", 1, 18)); // NOI18N
+        Lb_Products.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Lb_Products.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jocHyperlink16ActionPerformed(evt);
+                Lb_ProductsActionPerformed(evt);
             }
         });
-        jTaskPaneGroup4.getContentPane().add(jocHyperlink16);
+        jTaskPaneGroup4.getContentPane().add(Lb_Products);
 
-        jocHyperlink21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/13 di sieu thi.png"))); // NOI18N
-        jocHyperlink21.setText("ຫົວໜ່ວຍສິນຄ້າ");
-        jocHyperlink21.setFont(new java.awt.Font("Saysettha OT", 1, 18)); // NOI18N
-        jocHyperlink21.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jocHyperlink21.addActionListener(new java.awt.event.ActionListener() {
+        Lb_Unit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/13 di sieu thi.png"))); // NOI18N
+        Lb_Unit.setText("ຫົວໜ່ວຍສິນຄ້າ");
+        Lb_Unit.setFont(new java.awt.Font("Saysettha OT", 1, 18)); // NOI18N
+        Lb_Unit.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Lb_Unit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jocHyperlink21ActionPerformed(evt);
+                Lb_UnitActionPerformed(evt);
             }
         });
-        jTaskPaneGroup4.getContentPane().add(jocHyperlink21);
+        jTaskPaneGroup4.getContentPane().add(Lb_Unit);
 
-        jocHyperlink17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icon_inventory.png"))); // NOI18N
-        jocHyperlink17.setText("ຜູ້ສະໜອງ");
-        jocHyperlink17.setFont(new java.awt.Font("Saysettha OT", 1, 18)); // NOI18N
-        jocHyperlink17.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jocHyperlink17.addActionListener(new java.awt.event.ActionListener() {
+        Lb_Supplier.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icon_inventory.png"))); // NOI18N
+        Lb_Supplier.setText("ຜູ້ສະໜອງ");
+        Lb_Supplier.setFont(new java.awt.Font("Saysettha OT", 1, 18)); // NOI18N
+        Lb_Supplier.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Lb_Supplier.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jocHyperlink17ActionPerformed(evt);
+                Lb_SupplierActionPerformed(evt);
             }
         });
-        jTaskPaneGroup4.getContentPane().add(jocHyperlink17);
+        jTaskPaneGroup4.getContentPane().add(Lb_Supplier);
 
-        jocHyperlink18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/employee.png"))); // NOI18N
-        jocHyperlink18.setText("ພະນັກງານ");
-        jocHyperlink18.setFont(new java.awt.Font("Saysettha OT", 1, 18)); // NOI18N
-        jocHyperlink18.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jocHyperlink18.addActionListener(new java.awt.event.ActionListener() {
+        Lb_Employee.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/employee.png"))); // NOI18N
+        Lb_Employee.setText("ພະນັກງານ");
+        Lb_Employee.setFont(new java.awt.Font("Saysettha OT", 1, 18)); // NOI18N
+        Lb_Employee.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Lb_Employee.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jocHyperlink18ActionPerformed(evt);
+                Lb_EmployeeActionPerformed(evt);
             }
         });
-        jTaskPaneGroup4.getContentPane().add(jocHyperlink18);
+        jTaskPaneGroup4.getContentPane().add(Lb_Employee);
 
-        jocHyperlink19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/house-xxl.png"))); // NOI18N
-        jocHyperlink19.setText("ຂໍ້ມູນຮ້ານ");
-        jocHyperlink19.setFont(new java.awt.Font("Saysettha OT", 1, 18)); // NOI18N
-        jocHyperlink19.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jTaskPaneGroup4.getContentPane().add(jocHyperlink19);
+        Lb_Store.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/house-xxl.png"))); // NOI18N
+        Lb_Store.setText("ຂໍ້ມູນຮ້ານ");
+        Lb_Store.setFont(new java.awt.Font("Saysettha OT", 1, 18)); // NOI18N
+        Lb_Store.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jTaskPaneGroup4.getContentPane().add(Lb_Store);
 
-        jocHyperlink6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icon-multi_users-blue.png"))); // NOI18N
-        jocHyperlink6.setText("ລູກຄ້າ");
-        jocHyperlink6.setFont(new java.awt.Font("Saysettha OT", 1, 18)); // NOI18N
-        jocHyperlink6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jTaskPaneGroup4.getContentPane().add(jocHyperlink6);
+        Lb_Customers.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icon-multi_users-blue.png"))); // NOI18N
+        Lb_Customers.setText("ລູກຄ້າ");
+        Lb_Customers.setFont(new java.awt.Font("Saysettha OT", 1, 18)); // NOI18N
+        Lb_Customers.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jTaskPaneGroup4.getContentPane().add(Lb_Customers);
 
-        jocHyperlink23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/church-xxl.png"))); // NOI18N
-        jocHyperlink23.setText("ແຂວງ");
-        jocHyperlink23.setFont(new java.awt.Font("Saysettha OT", 1, 18)); // NOI18N
-        jocHyperlink23.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jocHyperlink23.addActionListener(new java.awt.event.ActionListener() {
+        Lb_Provinces.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/church-xxl.png"))); // NOI18N
+        Lb_Provinces.setText("ແຂວງ");
+        Lb_Provinces.setFont(new java.awt.Font("Saysettha OT", 1, 18)); // NOI18N
+        Lb_Provinces.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Lb_Provinces.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jocHyperlink23ActionPerformed(evt);
+                Lb_ProvincesActionPerformed(evt);
             }
         });
-        jTaskPaneGroup4.getContentPane().add(jocHyperlink23);
+        jTaskPaneGroup4.getContentPane().add(Lb_Provinces);
 
-        jocHyperlink24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/may_-_how_to_get_rid_of_ants_in_the_house.png"))); // NOI18N
-        jocHyperlink24.setText("ເມືອງ");
-        jocHyperlink24.setFont(new java.awt.Font("Saysettha OT", 1, 18)); // NOI18N
-        jocHyperlink24.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jocHyperlink24.addActionListener(new java.awt.event.ActionListener() {
+        Lb_Districts.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/may_-_how_to_get_rid_of_ants_in_the_house.png"))); // NOI18N
+        Lb_Districts.setText("ເມືອງ");
+        Lb_Districts.setFont(new java.awt.Font("Saysettha OT", 1, 18)); // NOI18N
+        Lb_Districts.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Lb_Districts.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jocHyperlink24ActionPerformed(evt);
+                Lb_DistrictsActionPerformed(evt);
             }
         });
-        jTaskPaneGroup4.getContentPane().add(jocHyperlink24);
+        jTaskPaneGroup4.getContentPane().add(Lb_Districts);
 
-        jocHyperlink25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/house-xxl.png"))); // NOI18N
-        jocHyperlink25.setText("ບ້ານ");
-        jocHyperlink25.setFont(new java.awt.Font("Saysettha OT", 1, 18)); // NOI18N
-        jocHyperlink25.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jocHyperlink25.addActionListener(new java.awt.event.ActionListener() {
+        Lb_Villages.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/house-xxl.png"))); // NOI18N
+        Lb_Villages.setText("ບ້ານ");
+        Lb_Villages.setFont(new java.awt.Font("Saysettha OT", 1, 18)); // NOI18N
+        Lb_Villages.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Lb_Villages.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jocHyperlink25ActionPerformed(evt);
+                Lb_VillagesActionPerformed(evt);
             }
         });
-        jTaskPaneGroup4.getContentPane().add(jocHyperlink25);
+        jTaskPaneGroup4.getContentPane().add(Lb_Villages);
 
-        jocHyperlink20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/user-permissions.png"))); // NOI18N
-        jocHyperlink20.setText("ສິດທິການໃຊ້ງານ");
-        jocHyperlink20.setFont(new java.awt.Font("Saysettha OT", 1, 18)); // NOI18N
-        jocHyperlink20.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jTaskPaneGroup4.getContentPane().add(jocHyperlink20);
+        Lb_Promission.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/user-permissions.png"))); // NOI18N
+        Lb_Promission.setText("ສິດທິການໃຊ້ງານ");
+        Lb_Promission.setFont(new java.awt.Font("Saysettha OT", 1, 18)); // NOI18N
+        Lb_Promission.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jTaskPaneGroup4.getContentPane().add(Lb_Promission);
 
-        jocHyperlink22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/settings-9-xxl.png"))); // NOI18N
-        jocHyperlink22.setText("ຕັ້ງຄ່າລະບົບ");
-        jocHyperlink22.setFont(new java.awt.Font("Saysettha OT", 1, 18)); // NOI18N
-        jocHyperlink22.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jTaskPaneGroup4.getContentPane().add(jocHyperlink22);
+        Lb_Setting.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/settings-9-xxl.png"))); // NOI18N
+        Lb_Setting.setText("ຕັ້ງຄ່າລະບົບ");
+        Lb_Setting.setFont(new java.awt.Font("Saysettha OT", 1, 18)); // NOI18N
+        Lb_Setting.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jTaskPaneGroup4.getContentPane().add(Lb_Setting);
 
-        btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/switch-512.png"))); // NOI18N
-        btnExit.setText("ອອກຈາກລະບົບ");
-        btnExit.setFont(new java.awt.Font("Saysettha OT", 1, 18)); // NOI18N
-        btnExit.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnExit.addActionListener(new java.awt.event.ActionListener() {
+        Lb_Close.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/switch-512.png"))); // NOI18N
+        Lb_Close.setText("ອອກຈາກລະບົບ");
+        Lb_Close.setFont(new java.awt.Font("Saysettha OT", 1, 18)); // NOI18N
+        Lb_Close.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Lb_Close.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExitActionPerformed(evt);
+                Lb_CloseActionPerformed(evt);
             }
         });
-        jTaskPaneGroup4.getContentPane().add(btnExit);
+        jTaskPaneGroup4.getContentPane().add(Lb_Close);
 
         jTaskPane1.add(jTaskPaneGroup4);
 
@@ -462,66 +483,66 @@ public class frmMainmenu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jocHyperlink14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jocHyperlink14ActionPerformed
+    private void Lb_GroupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Lb_GroupActionPerformed
         frmProductGroup e = new frmProductGroup();
         e.setVisible(true);
         jDesktopPane1.add(e);
-    }//GEN-LAST:event_jocHyperlink14ActionPerformed
+    }//GEN-LAST:event_Lb_GroupActionPerformed
 
-    private void jocHyperlink15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jocHyperlink15ActionPerformed
+    private void Lb_CatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Lb_CatActionPerformed
         frmCategory e = new frmCategory();
         e.setVisible(true);
         jDesktopPane1.add(e);
-    }//GEN-LAST:event_jocHyperlink15ActionPerformed
+    }//GEN-LAST:event_Lb_CatActionPerformed
 
-    private void jocHyperlink16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jocHyperlink16ActionPerformed
+    private void Lb_ProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Lb_ProductsActionPerformed
         frmProducts e = new frmProducts();
         e.setVisible(true);
         jDesktopPane1.add(e);
-    }//GEN-LAST:event_jocHyperlink16ActionPerformed
+    }//GEN-LAST:event_Lb_ProductsActionPerformed
 
-    private void jocHyperlink21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jocHyperlink21ActionPerformed
+    private void Lb_UnitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Lb_UnitActionPerformed
         frmUnit e = new frmUnit();
         e.setVisible(true);
         jDesktopPane1.add(e);
-    }//GEN-LAST:event_jocHyperlink21ActionPerformed
+    }//GEN-LAST:event_Lb_UnitActionPerformed
 
-    private void jocHyperlink17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jocHyperlink17ActionPerformed
+    private void Lb_SupplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Lb_SupplierActionPerformed
         frmSuppliers e = new frmSuppliers();
         e.setVisible(true);
         jDesktopPane1.add(e);
-    }//GEN-LAST:event_jocHyperlink17ActionPerformed
+    }//GEN-LAST:event_Lb_SupplierActionPerformed
 
-    private void jocHyperlink18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jocHyperlink18ActionPerformed
+    private void Lb_EmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Lb_EmployeeActionPerformed
         frmEmplyee e = new frmEmplyee();
         e.setVisible(true);
         jDesktopPane1.add(e);
-    }//GEN-LAST:event_jocHyperlink18ActionPerformed
+    }//GEN-LAST:event_Lb_EmployeeActionPerformed
 
-    private void jocHyperlink23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jocHyperlink23ActionPerformed
+    private void Lb_ProvincesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Lb_ProvincesActionPerformed
         frmProvince e = new frmProvince();
         e.setVisible(true);
         jDesktopPane1.add(e);
-    }//GEN-LAST:event_jocHyperlink23ActionPerformed
+    }//GEN-LAST:event_Lb_ProvincesActionPerformed
 
-    private void jocHyperlink24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jocHyperlink24ActionPerformed
+    private void Lb_DistrictsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Lb_DistrictsActionPerformed
         frmDistrict e = new frmDistrict();
         e.setVisible(true);
         jDesktopPane1.add(e);
-    }//GEN-LAST:event_jocHyperlink24ActionPerformed
+    }//GEN-LAST:event_Lb_DistrictsActionPerformed
 
-    private void jocHyperlink25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jocHyperlink25ActionPerformed
+    private void Lb_VillagesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Lb_VillagesActionPerformed
         frmVillage e = new frmVillage();
         e.setVisible(true);
         jDesktopPane1.add(e);
-    }//GEN-LAST:event_jocHyperlink25ActionPerformed
+    }//GEN-LAST:event_Lb_VillagesActionPerformed
 
-    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+    private void Lb_CloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Lb_CloseActionPerformed
         int reply= JOptionPane.showConfirmDialog(null,"Are you sure you want to close?","Close?",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
         if(reply == JOptionPane.YES_OPTION){
             System.exit(0);
         }
-    }//GEN-LAST:event_btnExitActionPerformed
+    }//GEN-LAST:event_Lb_CloseActionPerformed
  private BufferedImage ResizeSccall(Image im, int w, int h){
         try {
             BufferedImage buff = new BufferedImage(w, h, BufferedImage.TYPE_INT_RGB);
@@ -592,12 +613,25 @@ public class frmMainmenu extends javax.swing.JFrame {
     private javax.swing.JLabel LB_Account;
     private javax.swing.JLabel LB_Date;
     private javax.swing.JLabel LB_Permission;
+    private com.xzq.osc.JocHyperlink Lb_Cat;
+    private com.xzq.osc.JocHyperlink Lb_Close;
     private com.xzq.osc.JocHyperlink Lb_Close_Maney;
+    private com.xzq.osc.JocHyperlink Lb_Customers;
+    private com.xzq.osc.JocHyperlink Lb_Districts;
     private com.xzq.osc.JocHyperlink Lb_Edit_Sales;
+    private com.xzq.osc.JocHyperlink Lb_Employee;
+    private com.xzq.osc.JocHyperlink Lb_Group;
     private com.xzq.osc.JocHyperlink Lb_Payment;
+    private com.xzq.osc.JocHyperlink Lb_Products;
     private javax.swing.JMenu Lb_Programe_Title;
+    private com.xzq.osc.JocHyperlink Lb_Promission;
+    private com.xzq.osc.JocHyperlink Lb_Provinces;
     private com.xzq.osc.JocHyperlink Lb_Sales;
-    private com.xzq.osc.JocHyperlink btnExit;
+    private com.xzq.osc.JocHyperlink Lb_Setting;
+    private com.xzq.osc.JocHyperlink Lb_Store;
+    private com.xzq.osc.JocHyperlink Lb_Supplier;
+    private com.xzq.osc.JocHyperlink Lb_Unit;
+    private com.xzq.osc.JocHyperlink Lb_Villages;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
@@ -614,19 +648,6 @@ public class frmMainmenu extends javax.swing.JFrame {
     private com.xzq.osc.JocHyperlink jocHyperlink11;
     private com.xzq.osc.JocHyperlink jocHyperlink12;
     private com.xzq.osc.JocHyperlink jocHyperlink13;
-    private com.xzq.osc.JocHyperlink jocHyperlink14;
-    private com.xzq.osc.JocHyperlink jocHyperlink15;
-    private com.xzq.osc.JocHyperlink jocHyperlink16;
-    private com.xzq.osc.JocHyperlink jocHyperlink17;
-    private com.xzq.osc.JocHyperlink jocHyperlink18;
-    private com.xzq.osc.JocHyperlink jocHyperlink19;
-    private com.xzq.osc.JocHyperlink jocHyperlink20;
-    private com.xzq.osc.JocHyperlink jocHyperlink21;
-    private com.xzq.osc.JocHyperlink jocHyperlink22;
-    private com.xzq.osc.JocHyperlink jocHyperlink23;
-    private com.xzq.osc.JocHyperlink jocHyperlink24;
-    private com.xzq.osc.JocHyperlink jocHyperlink25;
-    private com.xzq.osc.JocHyperlink jocHyperlink6;
     private com.xzq.osc.JocHyperlink jocHyperlink7;
     private com.xzq.osc.JocHyperlink jocHyperlink8;
     private com.xzq.osc.JocHyperlink jocHyperlink9;

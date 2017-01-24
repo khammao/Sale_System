@@ -136,6 +136,7 @@
                   <SubComponents>
                     <Container class="com.l2fprod.common.swing.JTaskPaneGroup" name="jTaskPaneGroup1">
                       <Properties>
+                        <Property name="expanded" type="boolean" value="false"/>
                         <Property name="title" type="java.lang.String" value="&#xe81;&#xeb2;&#xe99;&#xe82;&#xeb2;&#xe8d;"/>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Saysettha OT" size="20" style="1"/>
@@ -495,14 +496,13 @@
                     </Container>
                     <Container class="com.l2fprod.common.swing.JTaskPaneGroup" name="jTaskPaneGroup4">
                       <Properties>
-                        <Property name="expanded" type="boolean" value="false"/>
                         <Property name="title" type="java.lang.String" value="&#xe88;&#xeb1;&#xe94;&#xe81;&#xeb2;&#xe99;&#xea5;&#xeb0;&#xe9a;&#xebb;&#xe9a;"/>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Saysettha OT" size="20" style="1"/>
                         </Property>
                       </Properties>
                       <SubComponents>
-                        <Component class="com.xzq.osc.JocHyperlink" name="jocHyperlink14">
+                        <Component class="com.xzq.osc.JocHyperlink" name="Lb_Group">
                           <Properties>
                             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                               <Image iconType="3" name="/Icon/Cube.png"/>
@@ -514,10 +514,10 @@
                             <Property name="horizontalAlignment" type="int" value="2"/>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jocHyperlink14ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Lb_GroupActionPerformed"/>
                           </Events>
                         </Component>
-                        <Component class="com.xzq.osc.JocHyperlink" name="jocHyperlink15">
+                        <Component class="com.xzq.osc.JocHyperlink" name="Lb_Cat">
                           <Properties>
                             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                               <Image iconType="3" name="/Icon/13 di sieu thi.png"/>
@@ -529,10 +529,10 @@
                             <Property name="horizontalAlignment" type="int" value="2"/>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jocHyperlink15ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Lb_CatActionPerformed"/>
                           </Events>
                         </Component>
-                        <Component class="com.xzq.osc.JocHyperlink" name="jocHyperlink16">
+                        <Component class="com.xzq.osc.JocHyperlink" name="Lb_Products">
                           <Properties>
                             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                               <Image iconType="3" name="/Icon/product-review.png"/>
@@ -544,10 +544,10 @@
                             <Property name="horizontalAlignment" type="int" value="2"/>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jocHyperlink16ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Lb_ProductsActionPerformed"/>
                           </Events>
                         </Component>
-                        <Component class="com.xzq.osc.JocHyperlink" name="jocHyperlink21">
+                        <Component class="com.xzq.osc.JocHyperlink" name="Lb_Unit">
                           <Properties>
                             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                               <Image iconType="3" name="/Icon/13 di sieu thi.png"/>
@@ -559,10 +559,10 @@
                             <Property name="horizontalAlignment" type="int" value="2"/>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jocHyperlink21ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Lb_UnitActionPerformed"/>
                           </Events>
                         </Component>
-                        <Component class="com.xzq.osc.JocHyperlink" name="jocHyperlink17">
+                        <Component class="com.xzq.osc.JocHyperlink" name="Lb_Supplier">
                           <Properties>
                             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                               <Image iconType="3" name="/Icon/icon_inventory.png"/>
@@ -574,10 +574,10 @@
                             <Property name="horizontalAlignment" type="int" value="2"/>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jocHyperlink17ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Lb_SupplierActionPerformed"/>
                           </Events>
                         </Component>
-                        <Component class="com.xzq.osc.JocHyperlink" name="jocHyperlink18">
+                        <Component class="com.xzq.osc.JocHyperlink" name="Lb_Employee">
                           <Properties>
                             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                               <Image iconType="3" name="/Icon/employee.png"/>
@@ -589,10 +589,10 @@
                             <Property name="horizontalAlignment" type="int" value="2"/>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jocHyperlink18ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Lb_EmployeeActionPerformed"/>
                           </Events>
                         </Component>
-                        <Component class="com.xzq.osc.JocHyperlink" name="jocHyperlink19">
+                        <Component class="com.xzq.osc.JocHyperlink" name="Lb_Store">
                           <Properties>
                             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                               <Image iconType="3" name="/Icon/house-xxl.png"/>
@@ -604,7 +604,7 @@
                             <Property name="horizontalAlignment" type="int" value="2"/>
                           </Properties>
                         </Component>
-                        <Component class="com.xzq.osc.JocHyperlink" name="jocHyperlink6">
+                        <Component class="com.xzq.osc.JocHyperlink" name="Lb_Customers">
                           <Properties>
                             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                               <Image iconType="3" name="/Icon/icon-multi_users-blue.png"/>
@@ -616,7 +616,7 @@
                             <Property name="horizontalAlignment" type="int" value="2"/>
                           </Properties>
                         </Component>
-                        <Component class="com.xzq.osc.JocHyperlink" name="jocHyperlink23">
+                        <Component class="com.xzq.osc.JocHyperlink" name="Lb_Provinces">
                           <Properties>
                             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                               <Image iconType="3" name="/Icon/church-xxl.png"/>
@@ -628,10 +628,10 @@
                             <Property name="horizontalAlignment" type="int" value="2"/>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jocHyperlink23ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Lb_ProvincesActionPerformed"/>
                           </Events>
                         </Component>
-                        <Component class="com.xzq.osc.JocHyperlink" name="jocHyperlink24">
+                        <Component class="com.xzq.osc.JocHyperlink" name="Lb_Districts">
                           <Properties>
                             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                               <Image iconType="3" name="/Icon/may_-_how_to_get_rid_of_ants_in_the_house.png"/>
@@ -643,10 +643,10 @@
                             <Property name="horizontalAlignment" type="int" value="2"/>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jocHyperlink24ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Lb_DistrictsActionPerformed"/>
                           </Events>
                         </Component>
-                        <Component class="com.xzq.osc.JocHyperlink" name="jocHyperlink25">
+                        <Component class="com.xzq.osc.JocHyperlink" name="Lb_Villages">
                           <Properties>
                             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                               <Image iconType="3" name="/Icon/house-xxl.png"/>
@@ -658,10 +658,10 @@
                             <Property name="horizontalAlignment" type="int" value="2"/>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jocHyperlink25ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Lb_VillagesActionPerformed"/>
                           </Events>
                         </Component>
-                        <Component class="com.xzq.osc.JocHyperlink" name="jocHyperlink20">
+                        <Component class="com.xzq.osc.JocHyperlink" name="Lb_Promission">
                           <Properties>
                             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                               <Image iconType="3" name="/Icon/user-permissions.png"/>
@@ -673,7 +673,7 @@
                             <Property name="horizontalAlignment" type="int" value="2"/>
                           </Properties>
                         </Component>
-                        <Component class="com.xzq.osc.JocHyperlink" name="jocHyperlink22">
+                        <Component class="com.xzq.osc.JocHyperlink" name="Lb_Setting">
                           <Properties>
                             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                               <Image iconType="3" name="/Icon/settings-9-xxl.png"/>
@@ -685,7 +685,7 @@
                             <Property name="horizontalAlignment" type="int" value="2"/>
                           </Properties>
                         </Component>
-                        <Component class="com.xzq.osc.JocHyperlink" name="btnExit">
+                        <Component class="com.xzq.osc.JocHyperlink" name="Lb_Close">
                           <Properties>
                             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                               <Image iconType="3" name="/Icon/switch-512.png"/>
@@ -697,7 +697,7 @@
                             <Property name="horizontalAlignment" type="int" value="2"/>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnExitActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Lb_CloseActionPerformed"/>
                           </Events>
                         </Component>
                       </SubComponents>
