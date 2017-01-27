@@ -29,13 +29,12 @@ public class frmLogin extends javax.swing.JDialog {
         this.setUndecorated(true);
         initComponents();
         groupButton();
-        //LangType="Lao";
-       
+        txtEmail.requestFocus();
+        // Create text hint 
         txtEmail.setToolTipText("<html><b><font color=red>"+"example@address.com"+ "</font></b></html>");
- 
         txtPass.setToolTipText("<html><b><font color=red>"+ "Your Password" + "</font></b></html>");
         txtStatus.setEnabled(false);
-        
+        // Set textbox Enter
         txtEmail.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -248,14 +247,16 @@ public class frmLogin extends javax.swing.JDialog {
     }//GEN-LAST:event_btnExitActionPerformed
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+
         Permission();
-            if(txtStatus.getText().equals("")){
-                 int type = JOptionPane.WARNING_MESSAGE;
-                 String msg = "Plese check Permission";
-                 String t = "Message.... ຂໍ້ຄວາມ";
-                 JOptionPane.showMessageDialog(this, msg, t,type);
-            }else{
-                Login();
+        if(txtStatus.getText().equals("")){
+             int type = JOptionPane.WARNING_MESSAGE;
+             String msg = "Plese check Permission";
+             String t = "Message.... ຂໍ້ຄວາມ";
+             JOptionPane.showMessageDialog(this, msg, t,type);
+        }else{
+            Login();
+               // LangType = LangType;
         }
     }//GEN-LAST:event_btnLoginActionPerformed
 
@@ -278,15 +279,18 @@ public class frmLogin extends javax.swing.JDialog {
 
     private void RadLaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RadLaoActionPerformed
        showLang();
+      // LangType="Lao";
     }//GEN-LAST:event_RadLaoActionPerformed
 
     private void RadEngActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RadEngActionPerformed
        showLang();
+      // LangType="Eng";
     }//GEN-LAST:event_RadEngActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-      //  RadLao.setSelected(true);
-       //  RadEng.setSelected(true);
+      // Show Label Languages
+        RadLao.setSelected(true);
+        LangType="Lao";
     }//GEN-LAST:event_formWindowOpened
 public void showLang(){
          try {

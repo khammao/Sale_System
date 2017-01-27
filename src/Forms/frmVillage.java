@@ -1,12 +1,16 @@
 
 package Forms;
 
+import static Forms.fetchResultSet.rsAll;
 import com.toedter.calendar.JTextFieldDateEditor;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class frmVillage extends javax.swing.JInternalFrame {
@@ -18,6 +22,7 @@ public class frmVillage extends javax.swing.JInternalFrame {
     ArrayList DT = new ArrayList();
     public frmVillage() {
         initComponents();
+        fetchResultSet.Tables="vw_Villages";
     }
     public void DisableEditeText(){
         txtVillage.setEditable(false);
@@ -114,28 +119,58 @@ public class frmVillage extends javax.swing.JInternalFrame {
         btnSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/Save_37110.png"))); // NOI18N
         btnSave.setText("ບັກທຶກ");
         btnSave.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
+            }
+        });
         jPanel2.add(btnSave);
 
         btnDelete.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/Delete_Icon-300x241.png"))); // NOI18N
         btnDelete.setText("ລົບອອກ");
         btnDelete.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
         jPanel2.add(btnDelete);
 
         btnFirst.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         btnFirst.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/previous-arrow-icon-94826.png"))); // NOI18N
+        btnFirst.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFirstActionPerformed(evt);
+            }
+        });
         jPanel2.add(btnFirst);
 
         btnPrevious.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         btnPrevious.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/previous-page-arrow-icon-94883.png"))); // NOI18N
+        btnPrevious.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPreviousActionPerformed(evt);
+            }
+        });
         jPanel2.add(btnPrevious);
 
         jButton1.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/next.png"))); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton1);
 
         jButton2.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/next-arrow-icon-94826.png"))); // NOI18N
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton2);
 
         jLabel1.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
@@ -169,6 +204,11 @@ public class frmVillage extends javax.swing.JInternalFrame {
 
         btnSearch.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         btnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/sa-icon-big.png"))); // NOI18N
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
 
         jLabel7.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         jLabel7.setText("ຄົ້ນຫາ:");
@@ -202,6 +242,8 @@ public class frmVillage extends javax.swing.JInternalFrame {
 
         jLabel5.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         jLabel5.setText("ວັນທີ່ປັບປຸງ:");
+
+        dtcUpdate.setDateFormatString("yyyy-MM-dd");
 
         jLabel6.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         jLabel6.setText("ຜູ້ປັບປຸງ:");
@@ -281,7 +323,7 @@ public class frmVillage extends javax.swing.JInternalFrame {
         Date date = new Date();
         dtcUpdate.setDate(date);
         ShowProvince();
-        
+       
     }//GEN-LAST:event_formInternalFrameOpened
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
@@ -292,6 +334,231 @@ public class frmVillage extends javax.swing.JInternalFrame {
     private void cmbProvinceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbProvinceActionPerformed
        ShowDistrict();
     }//GEN-LAST:event_cmbProvinceActionPerformed
+
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        try {
+            if(txtID.getText().equals("Auto")){
+                if(txtID.getText().equals("")){
+                    int type = JOptionPane.WARNING_MESSAGE;
+                    String a = "Error...Please check your data again.";
+                    String b = "Error";
+                    JOptionPane.showMessageDialog(null,a, b,type);
+                    return;
+                }
+                int D1 =cmbDistrict.getSelectedIndex();
+                int P1 =cmbProvince.getSelectedIndex();
+                if(JOptionPane.showConfirmDialog(null,"Do you like to Save?","Save",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE)==JOptionPane.YES_OPTION){
+                    SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+                    String date =(String) df.format(dtcUpdate.getDate());
+                    sql="Insert into Villages(Village,DistID,ProvID,Updates,Createby) values(?,?,?,?,?)";
+                    PreparedStatement p = con.prepareStatement(sql);
+                    p.setString(1,txtVillage.getText());
+                    p.setString(2,DT.get(D1).toString());
+                    p.setString(3,PV.get(P1).toString());
+                    p.setString(4,date);
+                    p.setString(5,txtUser.getText());
+                    if(p.executeUpdate()!=-1){
+                        int type = JOptionPane.WARNING_MESSAGE;
+                        String a = "Finished";
+                        String b = "Save";
+                        JOptionPane.showMessageDialog(null,a, b,type);
+                    }
+                    ClearText();
+                }
+            }else{
+                if(txtVillage.getText().equals("")){
+                    int type = JOptionPane.WARNING_MESSAGE;
+                    String a = "Error...Please check your data again.";
+                    String b = "Error";
+                    JOptionPane.showMessageDialog(null,a, b,type);
+                    return;
+                }
+                int D1 =cmbDistrict.getSelectedIndex();
+                int P1 =cmbProvince.getSelectedIndex();
+                if(JOptionPane.showConfirmDialog(null,"Do you like to edit?","edit",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE)==JOptionPane.YES_OPTION){
+                    SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+                    String date =(String) df.format(dtcUpdate.getDate());
+                    sql="Update Villages set Village=?,DistID=?,ProvID=?,Updates=?,Createby=? where VID=?";
+                    PreparedStatement p = con.prepareStatement(sql);
+                    p.setString(1,txtVillage.getText());
+                    p.setString(2,DT.get(D1).toString());
+                    p.setString(3,PV.get(P1).toString());
+                    p.setString(4,date);
+                    p.setString(5,txtUser.getText());
+                    p.setString(6,txtID.getText());
+                    if(p.executeUpdate()!=-1){
+                        int type = JOptionPane.WARNING_MESSAGE;
+                        String a = "Finished";
+                        String b = "Save";
+                        JOptionPane.showMessageDialog(null,a, b,type);
+                    }
+                    ClearText();
+                }
+            }
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_btnSaveActionPerformed
+
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+       SearchData();
+    }//GEN-LAST:event_btnSearchActionPerformed
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        try {
+            if(txtVillage.getText().equals("")){
+                int type = JOptionPane.WARNING_MESSAGE;
+                String a = "Error...Please Check you data again.";
+                String b = "Message";
+                JOptionPane.showMessageDialog(null,a,b,type);
+                return;
+            }
+            if(JOptionPane.showConfirmDialog(null,"Do you like to Delete?","Delete",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE)==JOptionPane.YES_OPTION){
+                sql="Delete from Villages where VID=?";
+                PreparedStatement p = con.prepareStatement(sql);
+                p.setString(1,txtID.getText());
+                if(p.executeUpdate()!=-1){
+                   int type = JOptionPane.OK_OPTION;
+                   String a = "Finished";
+                   String b = "Message";
+                   JOptionPane.showMessageDialog(null,a, b,type);
+                }
+                ClearText();
+            }
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void btnFirstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFirstActionPerformed
+        try
+        {
+            if (rsAll == null)
+            {
+                fetchResultSet.fatchR();
+            }
+            if (rsAll!=null)
+            {
+                if (rsAll.first())
+                {
+                    txtID.setText(rsAll.getString("VID"));
+                    txtVillage.setText(rsAll.getString("Village"));
+                    cmbDistrict.setSelectedItem(rsAll.getString("DistName"));
+                    cmbProvince.setSelectedItem(rsAll.getString("ProvName"));
+                    dtcUpdate.setDate(rsAll.getDate("Updates"));
+                    txtUser.setText(rsAll.getString("Createby"));
+                }
+                else
+                {
+                    //rs1 = null;
+                    rsAll.next( );
+                    JOptionPane.showMessageDialog(this,"End of File");
+                }
+            }
+        }catch(Exception ex){System.out.println(ex);}
+    }//GEN-LAST:event_btnFirstActionPerformed
+
+    private void btnPreviousActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPreviousActionPerformed
+        try
+        {
+            if (rsAll == null)
+            {
+                fetchResultSet.fatchR();
+            }
+            if (rsAll!=null)
+            {
+                if (rsAll.previous())
+                {
+                    txtID.setText(rsAll.getString("VID"));
+                    txtVillage.setText(rsAll.getString("Village"));
+                    cmbDistrict.setSelectedItem(rsAll.getString("DistName"));
+                    cmbProvince.setSelectedItem(rsAll.getString("ProvName"));
+                    dtcUpdate.setDate(rsAll.getDate("Updates"));
+                    txtUser.setText(rsAll.getString("Createby"));
+                }
+                else
+                {
+                    //rs1 = null;
+                    rsAll.next( );
+                    JOptionPane.showMessageDialog(this,"End of File");
+                }
+            }
+        }catch(Exception ex){System.out.println(ex);}
+    }//GEN-LAST:event_btnPreviousActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        try
+        {
+            if (rsAll == null)
+            {
+                fetchResultSet.fatchR();
+            }
+            if (rsAll!=null)
+            {
+                if (rsAll.next())
+                {
+                    txtID.setText(rsAll.getString("VID"));
+                    txtVillage.setText(rsAll.getString("Village"));
+                    cmbDistrict.setSelectedItem(rsAll.getString("DistName"));
+                    cmbProvince.setSelectedItem(rsAll.getString("ProvName"));
+                    dtcUpdate.setDate(rsAll.getDate("Updates"));
+                    txtUser.setText(rsAll.getString("Createby"));
+                }
+                else
+                {
+                    //rs1 = null;
+                    rsAll.previous();
+                    JOptionPane.showMessageDialog(this,"End of File");
+                }
+            }
+        }catch(Exception ex){System.out.println(ex);}
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        try
+        {
+            if (rsAll == null)
+            {
+                fetchResultSet.fatchR();
+            }
+            if (rsAll!=null)
+            {
+                if (rsAll.last())
+                {
+                    txtID.setText(rsAll.getString("VID"));
+                    txtVillage.setText(rsAll.getString("Village"));
+                    cmbDistrict.setSelectedItem(rsAll.getString("DistName"));
+                    cmbProvince.setSelectedItem(rsAll.getString("ProvName"));
+                    dtcUpdate.setDate(rsAll.getDate("Updates"));
+                    txtUser.setText(rsAll.getString("Createby"));
+                }
+                else
+                {
+                    //rs1 = null;
+                    rsAll.previous();
+                    JOptionPane.showMessageDialog(this,"End of File");
+                }
+            }
+        }catch(Exception ex){System.out.println(ex);}
+    }//GEN-LAST:event_jButton2ActionPerformed
+    public void SearchData(){
+        try{
+            sql="Select * from vw_FilterVillages where VID="+ txtSearch.getText() +"";
+            ResultSet rs = con.createStatement().executeQuery(sql);
+            if(rs.next()){
+                String ID = rs.getString("VID");
+                txtID.setText(ID);
+                String Vill = rs.getString("Village");
+                txtVillage.setText(Vill);
+                String PID = rs.getString("ProvName");
+                cmbProvince.setSelectedItem(PID);
+                String DID = rs.getString("DistName");
+                cmbDistrict.setSelectedItem(DID);
+                
+                dtcUpdate.setDate(rs.getDate("Updates"));
+                String user = rs.getString("Createby");
+                txtUser.setText(user);
+            }
+        }catch(Exception e){}
+    }
     public void ShowProvince(){
         try{
             DefaultComboBoxModel mode = new DefaultComboBoxModel();

@@ -42,13 +42,13 @@ public class frmMainmenu extends javax.swing.JFrame {
         Toolkit tk = Toolkit.getDefaultToolkit();
         int xsize=(int) tk.getScreenSize().getWidth();
         int ysize=(int) tk.getScreenSize().getHeight();
-       this.setSize(xsize, ysize);
-       
-       Acc=frmLogin.user_name.toString();
-       LB_Account.setText(Acc);
-       Per=frmLogin.permission.toString();
-       LB_Permission.setText(Per);
-       
+        this.setSize(xsize, ysize);
+
+        Acc=frmLogin.user_name.toString();
+        LB_Account.setText(Acc);
+        Per=frmLogin.permission.toString();
+        LB_Permission.setText(Per);
+
        
 // Create class Start datetime
         final DateFormat timeFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");

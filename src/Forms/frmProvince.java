@@ -153,8 +153,6 @@ public class frmProvince extends javax.swing.JInternalFrame {
         });
         jPanel2.add(btnLast);
 
-        jPanel3.setBackground(new java.awt.Color(83, 157, 206));
-
         jLabel4.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         jLabel4.setText("ຜູ້ປັບປຸງ:");
 
