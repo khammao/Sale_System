@@ -4,6 +4,7 @@ package Forms;
 
 import static Forms.ChangeLanguage.LangType;
 import static Forms.ChangeLanguage.getLabel;
+import com.placeholder.PlaceHolder;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -31,6 +32,8 @@ public class frmLogin extends javax.swing.JDialog {
         groupButton();
         txtEmail.requestFocus();
         // Create text hint 
+//        PlaceHolder txt1 = new PlaceHolder(txtEmail,"Please! enter your email");
+//        PlaceHolder txt2 = new PlaceHolder(txtPass,"Please! enter your Password");
         txtEmail.setToolTipText("<html><b><font color=red>"+"example@address.com"+ "</font></b></html>");
         txtPass.setToolTipText("<html><b><font color=red>"+ "Your Password" + "</font></b></html>");
         txtStatus.setEnabled(false);
@@ -74,6 +77,7 @@ public class frmLogin extends javax.swing.JDialog {
                 //frmLogin.permission = rs.getString("UserStatus");
                 dispose();
                 frmMainmenu m = new frmMainmenu();
+                m.setExtendedState(m.MAXIMIZED_BOTH);
                 m.setVisible(true);  
                 
              }else{

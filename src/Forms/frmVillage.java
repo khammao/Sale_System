@@ -2,6 +2,7 @@
 package Forms;
 
 import static Forms.fetchResultSet.rsAll;
+import com.placeholder.PlaceHolder;
 import com.toedter.calendar.JTextFieldDateEditor;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -23,6 +24,7 @@ public class frmVillage extends javax.swing.JInternalFrame {
     public frmVillage() {
         initComponents();
         fetchResultSet.Tables="vw_Villages";
+        PlaceHolder txt1 = new PlaceHolder(txtSearch,"Please! enter Village ID");
     }
     public void DisableEditeText(){
         txtVillage.setEditable(false);
@@ -218,10 +220,10 @@ public class frmVillage extends javax.swing.JInternalFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(78, Short.MAX_VALUE)
                 .addComponent(jLabel7)
-                .addGap(67, 67, 67)
-                .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(65, 65, 65))

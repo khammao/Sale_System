@@ -1,6 +1,8 @@
 
 package Forms;
 
+import static Forms.ChangeLanguage.getLabel;
+import com.placeholder.PlaceHolder;
 import com.toedter.calendar.JTextFieldDateEditor;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -12,6 +14,9 @@ import java.util.Vector;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
+import javax.swing.table.TableColumn;
+import javax.swing.table.TableColumnModel;
 
 public class frmCategory extends javax.swing.JInternalFrame {
     Connection con=ConnectDB.getConnection();
@@ -20,8 +25,30 @@ public class frmCategory extends javax.swing.JInternalFrame {
     ArrayList gp =new ArrayList();
     public frmCategory() {
         initComponents();
+        PlaceHolder txt1 = new PlaceHolder(txtSearch,"Enter id or name");
         model = (DefaultTableModel)jTable1.getModel();
         jTable1.getTableHeader().setFont(new java.awt.Font("Saysettha OT", java.awt.Font.BOLD, 12));
+        Lb_ID.setText(getLabel("Lb_ID"));
+        Lb_Group.setText(getLabel("Lb_Group"));
+        Lb_Category.setText(getLabel("Lb_Category"));
+        Lb_Update.setText(getLabel("Lb_Update"));
+        Lb_CreateBy.setText(getLabel("Lb_CreateBy"));
+        Lb_Search.setText(getLabel("Lb_Search"));
+        Lb_InputIDCat.setText(getLabel("Lb_InputIDCat"));
+        Lb_exsimple_Search.setText(getLabel("Lb_exsimple_Search"));
+        btnDelete.setText(getLabel("btnDelete"));
+        btnNew.setText(getLabel("btnNew"));
+        btnSave.setText(getLabel("btnSave"));
+        JTableHeader th = jTable1.getTableHeader();
+        TableColumnModel tcm = th.getColumnModel();
+        jTable1.getColumnCount();
+        for(int i=0; i < jTable1.getColumnCount(); i++){
+            TableColumn tc = tcm.getColumn(i);            
+            tc.setHeaderValue(getLabel (jTable1.getModel().getColumnName(i)));
+            System.out.println(jTable1.getModel().getColumnName(i));
+        }
+        jTable1.setAutoCreateRowSorter(true);
+        th.repaint();
     }
 
     @SuppressWarnings("unchecked")
@@ -31,25 +58,25 @@ public class frmCategory extends javax.swing.JInternalFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
-        btnAdd = new javax.swing.JButton();
+        btnNew = new javax.swing.JButton();
         btnSave = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        Lb_ID = new javax.swing.JLabel();
+        Lb_Group = new javax.swing.JLabel();
+        Lb_Update = new javax.swing.JLabel();
+        Lb_CreateBy = new javax.swing.JLabel();
         txtUser = new javax.swing.JTextField();
         dtpDate = new com.toedter.calendar.JDateChooser();
         txtID = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
+        Lb_Category = new javax.swing.JLabel();
         cmbGroup = new javax.swing.JComboBox();
         txtCategory = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
+        Lb_Search = new javax.swing.JLabel();
         txtSearch = new javax.swing.JTextField();
         btnSearch = new javax.swing.JButton();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        Lb_InputIDCat = new javax.swing.JLabel();
+        Lb_exsimple_Search = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
@@ -80,17 +107,17 @@ public class frmCategory extends javax.swing.JInternalFrame {
         jPanel5.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
         jPanel5.setLayout(new javax.swing.BoxLayout(jPanel5, javax.swing.BoxLayout.LINE_AXIS));
 
-        btnAdd.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/plus-blue.png"))); // NOI18N
-        btnAdd.setText("ເພີ່ມໃໝ່");
-        btnAdd.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnAdd.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        btnAdd.addActionListener(new java.awt.event.ActionListener() {
+        btnNew.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        btnNew.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/plus-blue.png"))); // NOI18N
+        btnNew.setText("ເພີ່ມໃໝ່");
+        btnNew.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnNew.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnNew.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddActionPerformed(evt);
+                btnNewActionPerformed(evt);
             }
         });
-        jPanel5.add(btnAdd);
+        jPanel5.add(btnNew);
 
         btnSave.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         btnSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/Save_37110.png"))); // NOI18N
@@ -114,17 +141,21 @@ public class frmCategory extends javax.swing.JInternalFrame {
         });
         jPanel5.add(btnDelete);
 
-        jLabel1.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        jLabel1.setText("ລຳດັບ:");
+        Lb_ID.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        Lb_ID.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        Lb_ID.setText("ລຳດັບ:");
 
-        jLabel2.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        jLabel2.setText("ື່ກຸ່ມສິນຄ້າ:");
+        Lb_Group.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        Lb_Group.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        Lb_Group.setText("ກຸ່ມສິນຄ້າ:");
 
-        jLabel3.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        jLabel3.setText("ວັນທີປັບປຸງ:");
+        Lb_Update.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        Lb_Update.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        Lb_Update.setText("ວັນທີປັບປຸງ:");
 
-        jLabel4.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        jLabel4.setText("ຜູ້ປັບປຸງ:");
+        Lb_CreateBy.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        Lb_CreateBy.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        Lb_CreateBy.setText("ຜູ້ປັບປຸງ:");
 
         txtUser.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
 
@@ -134,8 +165,9 @@ public class frmCategory extends javax.swing.JInternalFrame {
         txtID.setEditable(false);
         txtID.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
 
-        jLabel5.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        jLabel5.setText("ຊື່ປະເພດ:");
+        Lb_Category.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        Lb_Category.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        Lb_Category.setText("ຊື່ປະເພດ:");
 
         cmbGroup.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
         cmbGroup.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -157,13 +189,15 @@ public class frmCategory extends javax.swing.JInternalFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Lb_Update, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Lb_CreateBy, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Lb_Group, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE)
+                            .addComponent(Lb_ID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(Lb_Category, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -171,7 +205,7 @@ public class frmCategory extends javax.swing.JInternalFrame {
                     .addComponent(cmbGroup, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtCategory)
                     .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -180,33 +214,31 @@ public class frmCategory extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(Lb_ID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(1, 1, 1)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Lb_Category, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(1, 1, 1)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(cmbGroup, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(Lb_Group, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cmbGroup, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(2, 2, 2)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(dtpDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE))
-                .addGap(2, 2, 2)
+                    .addComponent(Lb_Update, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(6, 6, 6))
+                    .addComponent(Lb_CreateBy, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         jPanel3.setBackground(new java.awt.Color(83, 157, 206));
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 102), 2));
 
-        jLabel6.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        jLabel6.setText("ຄົ້ນຫາຂໍ້ມູນ:");
+        Lb_Search.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        Lb_Search.setText("ຄົ້ນຫາຂໍ້ມູນ:");
 
         txtSearch.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
 
@@ -218,11 +250,11 @@ public class frmCategory extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel7.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        jLabel7.setText("ໃຫ້ປ້ອນ ລຳດັບ ຫຼື ຊື່ຂອງກຸ່ມ");
+        Lb_InputIDCat.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        Lb_InputIDCat.setText("ໃຫ້ປ້ອນ ລຳດັບ ຫຼື ຊື່ປະເພດ");
 
-        jLabel8.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        jLabel8.setText("ຕົວຢ່າງການໃນຄົ້ນຫາ");
+        Lb_exsimple_Search.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        Lb_exsimple_Search.setText("ຕົວຢ່າງການໃນຄົ້ນຫາ");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -230,17 +262,17 @@ public class frmCategory extends javax.swing.JInternalFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Lb_Search, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Lb_InputIDCat, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(Lb_exsimple_Search, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -250,13 +282,13 @@ public class frmCategory extends javax.swing.JInternalFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel6)
+                        .addComponent(Lb_Search)
                         .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Lb_exsimple_Search, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(89, Short.MAX_VALUE))
+                .addComponent(Lb_InputIDCat, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTable1.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
@@ -265,7 +297,7 @@ public class frmCategory extends javax.swing.JInternalFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "ລຳດັບ", "ປະເພດ", "ກຸ່ມສິນຄ້າ", "ວັນທີ່ປັບປຸງ", "ຜູ້ປັບປຸງ"
+                "LbT_ID", "LbT_GroupName", "LbT_CateName", "LbT_Updates", "LbT_CreateBy"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -323,10 +355,10 @@ public class frmCategory extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+    private void btnNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewActionPerformed
          ClearText();
          EnableEditText();
-    }//GEN-LAST:event_btnAddActionPerformed
+    }//GEN-LAST:event_btnNewActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         try{
@@ -534,20 +566,20 @@ public class frmCategory extends javax.swing.JInternalFrame {
         txtUser.setEditable(true);
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAdd;
+    private javax.swing.JLabel Lb_Category;
+    private javax.swing.JLabel Lb_CreateBy;
+    private javax.swing.JLabel Lb_Group;
+    private javax.swing.JLabel Lb_ID;
+    private javax.swing.JLabel Lb_InputIDCat;
+    private javax.swing.JLabel Lb_Search;
+    private javax.swing.JLabel Lb_Update;
+    private javax.swing.JLabel Lb_exsimple_Search;
     private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnNew;
     private javax.swing.JButton btnSave;
     private javax.swing.JButton btnSearch;
     private javax.swing.JComboBox cmbGroup;
     private com.toedter.calendar.JDateChooser dtpDate;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

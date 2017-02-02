@@ -91,13 +91,17 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jPanel5" alignment="0" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel3" max="32767" attributes="0"/>
-                          <Component id="jLabel4" max="32767" attributes="0"/>
-                          <Component id="jLabel2" alignment="0" min="-2" pref="79" max="-2" attributes="0"/>
-                          <Component id="jLabel5" alignment="0" min="-2" pref="79" max="-2" attributes="0"/>
-                          <Component id="jLabel1" alignment="0" min="-2" pref="66" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="Lb_Update" max="32767" attributes="0"/>
+                                  <Component id="Lb_CreateBy" max="32767" attributes="0"/>
+                                  <Component id="Lb_Group" alignment="0" pref="79" max="32767" attributes="0"/>
+                                  <Component id="Lb_ID" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Component id="Lb_Category" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -107,7 +111,7 @@
                           <Component id="txtCategory" alignment="0" max="32767" attributes="0"/>
                           <Component id="txtUser" alignment="0" min="-2" pref="198" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -118,32 +122,29 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="txtID" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
-                          <Component id="jLabel1" alignment="3" max="32767" attributes="0"/>
+                          <Component id="Lb_ID" alignment="3" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel5" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                          <Component id="Lb_Category" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                           <Component id="txtCategory" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel2" max="32767" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              <Component id="cmbGroup" min="-2" pref="37" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="dtpDate" max="32767" attributes="0"/>
-                          <Component id="jLabel3" pref="39" max="32767" attributes="0"/>
+                          <Component id="Lb_Group" max="32767" attributes="0"/>
+                          <Component id="cmbGroup" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="dtpDate" max="32767" attributes="0"/>
+                          <Component id="Lb_Update" min="-2" pref="39" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="txtUser" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
-                          <Component id="jLabel4" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                          <Component id="Lb_CreateBy" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -160,7 +161,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBoxLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JButton" name="btnAdd">
+                <Component class="javax.swing.JButton" name="btnNew">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Saysettha OT" size="12" style="0"/>
@@ -173,7 +174,7 @@
                     <Property name="horizontalTextPosition" type="int" value="4"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNewActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="btnSave">
@@ -208,35 +209,39 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JLabel" name="jLabel1">
+            <Component class="javax.swing.JLabel" name="Lb_ID">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Saysettha OT" size="12" style="0"/>
                 </Property>
+                <Property name="horizontalAlignment" type="int" value="4"/>
                 <Property name="text" type="java.lang.String" value="&#xea5;&#xeb3;&#xe94;&#xeb1;&#xe9a;:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel2">
+            <Component class="javax.swing.JLabel" name="Lb_Group">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Saysettha OT" size="12" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="&#xeb7;&#xec8;&#xe81;&#xeb8;&#xec8;&#xea1;&#xeaa;&#xeb4;&#xe99;&#xe84;&#xec9;&#xeb2;:"/>
+                <Property name="horizontalAlignment" type="int" value="4"/>
+                <Property name="text" type="java.lang.String" value="&#xe81;&#xeb8;&#xec8;&#xea1;&#xeaa;&#xeb4;&#xe99;&#xe84;&#xec9;&#xeb2;:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel3">
+            <Component class="javax.swing.JLabel" name="Lb_Update">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Saysettha OT" size="12" style="0"/>
                 </Property>
+                <Property name="horizontalAlignment" type="int" value="4"/>
                 <Property name="text" type="java.lang.String" value="&#xea7;&#xeb1;&#xe99;&#xe97;&#xeb5;&#xe9b;&#xeb1;&#xe9a;&#xe9b;&#xeb8;&#xe87;:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel4">
+            <Component class="javax.swing.JLabel" name="Lb_CreateBy">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Saysettha OT" size="12" style="0"/>
                 </Property>
+                <Property name="horizontalAlignment" type="int" value="4"/>
                 <Property name="text" type="java.lang.String" value="&#xe9c;&#xeb9;&#xec9;&#xe9b;&#xeb1;&#xe9a;&#xe9b;&#xeb8;&#xe87;:"/>
               </Properties>
             </Component>
@@ -263,11 +268,12 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel5">
+            <Component class="javax.swing.JLabel" name="Lb_Category">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Saysettha OT" size="12" style="0"/>
                 </Property>
+                <Property name="horizontalAlignment" type="int" value="4"/>
                 <Property name="text" type="java.lang.String" value="&#xe8a;&#xeb7;&#xec8;&#xe9b;&#xeb0;&#xec0;&#xe9e;&#xe94;:"/>
               </Properties>
             </Component>
@@ -313,7 +319,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                      <Component id="jLabel6" min="-2" pref="66" max="-2" attributes="0"/>
+                      <Component id="Lb_Search" min="-2" pref="66" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
@@ -321,10 +327,10 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="btnSearch" min="-2" pref="34" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jLabel7" alignment="0" min="-2" pref="155" max="-2" attributes="0"/>
+                          <Component id="Lb_InputIDCat" alignment="0" min="-2" pref="155" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                              <Component id="jLabel8" min="-2" pref="123" max="-2" attributes="0"/>
+                              <Component id="Lb_exsimple_Search" min="-2" pref="123" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
@@ -338,21 +344,21 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="btnSearch" alignment="0" min="-2" pref="34" max="-2" attributes="0"/>
                           <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                              <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="Lb_Search" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="txtSearch" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jLabel8" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="Lb_exsimple_Search" min="-2" pref="30" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel7" min="-2" pref="30" max="-2" attributes="0"/>
-                      <EmptySpace pref="89" max="32767" attributes="0"/>
+                      <Component id="Lb_InputIDCat" min="-2" pref="30" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="jLabel6">
+            <Component class="javax.swing.JLabel" name="Lb_Search">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Saysettha OT" size="12" style="0"/>
@@ -380,15 +386,15 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSearchActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel7">
+            <Component class="javax.swing.JLabel" name="Lb_InputIDCat">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Saysettha OT" size="12" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="&#xec3;&#xeab;&#xec9;&#xe9b;&#xec9;&#xead;&#xe99; &#xea5;&#xeb3;&#xe94;&#xeb1;&#xe9a; &#xeab;&#xebc;&#xeb7; &#xe8a;&#xeb7;&#xec8;&#xe82;&#xead;&#xe87;&#xe81;&#xeb8;&#xec8;&#xea1;"/>
+                <Property name="text" type="java.lang.String" value="&#xec3;&#xeab;&#xec9;&#xe9b;&#xec9;&#xead;&#xe99; &#xea5;&#xeb3;&#xe94;&#xeb1;&#xe9a; &#xeab;&#xebc;&#xeb7; &#xe8a;&#xeb7;&#xec8;&#xe9b;&#xeb0;&#xec0;&#xe9e;&#xe94;"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel8">
+            <Component class="javax.swing.JLabel" name="Lb_exsimple_Search">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Saysettha OT" size="12" style="0"/>
@@ -412,11 +418,11 @@
                 </Property>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                   <Table columnCount="5" rowCount="1">
-                    <Column editable="false" title="&#xea5;&#xeb3;&#xe94;&#xeb1;&#xe9a;" type="java.lang.Object"/>
-                    <Column editable="false" title="&#xe9b;&#xeb0;&#xec0;&#xe9e;&#xe94;" type="java.lang.Object"/>
-                    <Column editable="false" title="&#xe81;&#xeb8;&#xec8;&#xea1;&#xeaa;&#xeb4;&#xe99;&#xe84;&#xec9;&#xeb2;" type="java.lang.Object"/>
-                    <Column editable="true" title="&#xea7;&#xeb1;&#xe99;&#xe97;&#xeb5;&#xec8;&#xe9b;&#xeb1;&#xe9a;&#xe9b;&#xeb8;&#xe87;" type="java.lang.Object"/>
-                    <Column editable="false" title="&#xe9c;&#xeb9;&#xec9;&#xe9b;&#xeb1;&#xe9a;&#xe9b;&#xeb8;&#xe87;" type="java.lang.Object"/>
+                    <Column editable="false" title="LbT_ID" type="java.lang.Object"/>
+                    <Column editable="false" title="LbT_GroupName" type="java.lang.Object"/>
+                    <Column editable="false" title="LbT_CateName" type="java.lang.Object"/>
+                    <Column editable="true" title="LbT_Updates" type="java.lang.Object"/>
+                    <Column editable="false" title="LbT_CreateBy" type="java.lang.Object"/>
                   </Table>
                 </Property>
                 <Property name="autoResizeMode" type="int" value="0"/>

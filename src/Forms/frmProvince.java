@@ -1,6 +1,7 @@
 
 package Forms;
 
+import com.placeholder.PlaceHolder;
 import com.toedter.calendar.JTextFieldDateEditor;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -20,6 +21,7 @@ public class frmProvince extends javax.swing.JInternalFrame {
     ResultSet rs1;
     public frmProvince() {
         initComponents();
+        PlaceHolder txt1 = new PlaceHolder(txtSearch,"Please! enter Province ID");
     }
     public void DisableEditeText(){
         txtProvince.setEditable(false);

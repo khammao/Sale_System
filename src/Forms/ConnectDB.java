@@ -10,9 +10,9 @@ public class ConnectDB {
     {
         try
         {
-            String sqlcon="jdbc:sqlserver://NB-350V\\SQLEXPRESS;databaseName = TGInventory";
+            String sqlcon="jdbc:sqlserver://192.168.99.130:1433;databaseName = TGInventory";
             String user = "sa";
-            String pas = "mee";
+            String pas = "Mee@2016";
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             Connection c = DriverManager.getConnection(sqlcon, user, pas);
             return c;                        

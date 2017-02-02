@@ -1,6 +1,7 @@
 
 package Forms;
 
+import static Forms.ChangeLanguage.getLabel;
 import java.awt.Dialog;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,6 +12,9 @@ import java.util.Date;
 import java.util.Vector;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
+import javax.swing.table.TableColumn;
+import javax.swing.table.TableColumnModel;
 
 public class frmUnit extends javax.swing.JInternalFrame {
     Connection con=ConnectDB.getConnection();
@@ -20,6 +24,23 @@ public class frmUnit extends javax.swing.JInternalFrame {
         initComponents();
         model = (DefaultTableModel)jTable1.getModel();
         jTable1.getTableHeader().setFont(new java.awt.Font("Saysettha OT", java.awt.Font.BOLD, 12));
+        Lb_ID.setText(getLabel("Lb_ID"));
+        Lb_UnitName.setText(getLabel("Lb_UnitName"));
+        Lb_Update.setText(getLabel("Lb_Update"));
+        Lb_CreateBy.setText(getLabel("Lb_CreateBy"));
+        btnNew.setText(getLabel("btnNew"));
+        btnSave.setText(getLabel("btnSave"));
+        btnDelete.setText(getLabel("btnDelete"));
+        JTableHeader th = jTable1.getTableHeader();
+        TableColumnModel tcm = th.getColumnModel();
+        jTable1.getColumnCount();
+        for(int i=0; i < jTable1.getColumnCount(); i++){
+            TableColumn tc = tcm.getColumn(i);            
+            tc.setHeaderValue(getLabel (jTable1.getModel().getColumnName(i)));
+            System.out.println(jTable1.getModel().getColumnName(i));
+        }
+        jTable1.setAutoCreateRowSorter(true);
+        th.repaint();
     }
 
     @SuppressWarnings("unchecked")
@@ -28,16 +49,16 @@ public class frmUnit extends javax.swing.JInternalFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        Lb_ID = new javax.swing.JLabel();
         txtID = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
+        Lb_UnitName = new javax.swing.JLabel();
         txtUnit = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
+        Lb_Update = new javax.swing.JLabel();
         dtcDate = new com.toedter.calendar.JDateChooser();
-        jLabel4 = new javax.swing.JLabel();
+        Lb_CreateBy = new javax.swing.JLabel();
         txtUser = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
-        btnAdd = new javax.swing.JButton();
+        btnNew = new javax.swing.JButton();
         btnSave = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -67,36 +88,40 @@ public class frmUnit extends javax.swing.JInternalFrame {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 102, 255), 2));
 
-        jLabel1.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        jLabel1.setText("ລຳດັບ:");
+        Lb_ID.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        Lb_ID.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        Lb_ID.setText("ລຳດັບ:");
 
         txtID.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
 
-        jLabel2.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        jLabel2.setText("ຫົວໜ່ວຍ:");
+        Lb_UnitName.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        Lb_UnitName.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        Lb_UnitName.setText("ຫົວໜ່ວຍ:");
 
         txtUnit.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
 
-        jLabel3.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        jLabel3.setText("ວັນທີ່ປັບປຸງ:");
+        Lb_Update.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        Lb_Update.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        Lb_Update.setText("ວັນທີ່ປັບປຸງ:");
 
         dtcDate.setDateFormatString("yyyy-MM-dd");
         dtcDate.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
 
-        jLabel4.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        jLabel4.setText("ຜູ້ປັບປຸງ:");
+        Lb_CreateBy.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        Lb_CreateBy.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        Lb_CreateBy.setText("ຜູ້ປັບປຸງ:");
 
         txtUser.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
 
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 102, 255)));
 
-        btnAdd.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
-        btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/plus-blue.png"))); // NOI18N
-        btnAdd.setText("ເພີ່ມໃໝ່");
-        btnAdd.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnAdd.addActionListener(new java.awt.event.ActionListener() {
+        btnNew.setFont(new java.awt.Font("Saysettha OT", 0, 12)); // NOI18N
+        btnNew.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/plus-blue.png"))); // NOI18N
+        btnNew.setText("ເພີ່ມໃໝ່");
+        btnNew.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnNew.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddActionPerformed(evt);
+                btnNewActionPerformed(evt);
             }
         });
 
@@ -129,14 +154,14 @@ public class frmUnit extends javax.swing.JInternalFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnSave, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnDelete)
-                    .addComponent(btnAdd, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnNew, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(38, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnNew, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSave)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -150,18 +175,18 @@ public class frmUnit extends javax.swing.JInternalFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel4))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(Lb_Update, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Lb_ID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Lb_UnitName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Lb_CreateBy, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtUser)
-                    .addComponent(dtcDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(dtcDate, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
                     .addComponent(txtUnit)
                     .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -170,19 +195,19 @@ public class frmUnit extends javax.swing.JInternalFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
+                    .addComponent(Lb_ID)
                     .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel2)
+                    .addComponent(Lb_UnitName)
                     .addComponent(txtUnit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel3)
+                    .addComponent(Lb_Update)
                     .addComponent(dtcDate, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
+                    .addComponent(Lb_CreateBy)
                     .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
@@ -200,7 +225,7 @@ public class frmUnit extends javax.swing.JInternalFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "ລຳດັບ", "ຫົວໜ່ວຍ", "ວັນທີ່ປັບປຸງ", "ຜູ້ປັບປຸງ"
+                "LbT_ID", "LbT_Unit", "LbT_Updates", "LbT_CreateBy"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -350,9 +375,9 @@ public static java.sql.Date convertUtilDateToSqlDate(java.util.Date date){
        }
     }//GEN-LAST:event_btnSaveActionPerformed
 
-    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+    private void btnNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewActionPerformed
         ClearText();
-    }//GEN-LAST:event_btnAddActionPerformed
+    }//GEN-LAST:event_btnNewActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
        try{
@@ -412,14 +437,14 @@ public static java.sql.Date convertUtilDateToSqlDate(java.util.Date date){
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAdd;
+    private javax.swing.JLabel Lb_CreateBy;
+    private javax.swing.JLabel Lb_ID;
+    private javax.swing.JLabel Lb_UnitName;
+    private javax.swing.JLabel Lb_Update;
     private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnNew;
     private javax.swing.JButton btnSave;
     private com.toedter.calendar.JDateChooser dtcDate;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
